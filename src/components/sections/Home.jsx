@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <section
       id="home"
-      className="min-h-[90vh] flex items-center justify-center bg-white text-black px-6"
+      className="min-h-[90vh] flex items-center justify-center bg-black text-white px-6"
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
       <div
@@ -28,7 +28,7 @@ export const Home = () => {
             Hi, I'm Nikhil Yarra
           </h1>
 
-          <h2 className="text-xl sm:text-2xl font-mono text-gray-700 mb-6">
+          <h2 className="text-xl sm:text-2xl font-mono text-gray-400 mb-6">
             <Typewriter
               words={[
                 "Data Science Maverick",
@@ -47,20 +47,20 @@ export const Home = () => {
             />
           </h2>
 
-          <p className="text-gray-700 text-base sm:text-lg mb-8 leading-relaxed">
+          <p className="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
             I’m a curious data science graduate exploring machine learning, deep learning, and AI. I enjoy experimenting with models and building small projects that help me learn and grow.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <a
               href="#projects"
-              className="bg-black text-white py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-gray-900"
+              className="bg-white text-black py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-gray-200"
             >
               🚀 View Projects
             </a>
             <a
               href="mailto:nikhilyarra@gmail.com?subject=Portfolio Inquiry&body=Hi Nikhil,"
-              className="border border-black text-black py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-gray-100"
+              className="border border-white text-white py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-white hover:text-black"
             >
               ✉️ Let’s Connect
             </a>
@@ -74,15 +74,13 @@ export const Home = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.4 }}
         >
-          {/* Gradient Blur Behind */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-pink-300 via-purple-300 to-blue-300 opacity-30 blur-2xl z-0"></div>
-
-          {/* Profile Image */}
+          {/* Gradient Glow Behind */}
+          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 via-purple-700 to-purple-900 opacity-40 blur-[120px] z-0 scale-125"></div>          {/* Profile Image */}
           <img
-  src={`${import.meta.env.BASE_URL}pfp1.jpg`}
-  alt="Profile of Nikhil Yarra"
-  className="relative z-10 w-60 h-60 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-lg"
-/>
+            src={`${import.meta.env.BASE_URL}pfp1.jpg`}
+            alt="Profile of Nikhil Yarra"
+            className="relative z-10 w-60 h-60 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-xl"
+          />
         </motion.div>
       </div>
     </section>

@@ -10,6 +10,7 @@ import { About } from "./components/sections/About";
 import { Projects } from "./components/sections/Projects";
 import { Certifications } from "./components/sections/Certifications";
 import { SocialBar } from "./components/sections/SocialBar";
+import { CursorSpotlight } from "./components/sections/CursorSpotlight";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -38,17 +39,42 @@ function App() {
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
 
       <div
-        className={`min-h-screen transition-opacity duration-700 ${
+        className={`w-full min-h-screen transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
-        } bg-[#f4f4f4] text-[#1e1e1e] font-sans`}
+        } bg-black text-white font-sans relative overflow-hidden`}
       >
+        {/* Navigation */}
         <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+
+        {/* Floating UI */}
         <SocialBar />
-        <Home />
-        <Projects />
-        <Certifications />
-        <About />
+        <CursorSpotlight />
+
+        {/* Sections */}
+        <section className="min-h-screen flex items-center justify-center bg-black px-6 py-12">
+          <div className="max-w-6xl w-full">
+            <Home />
+          </div>
+        </section>
+
+        <section className="min-h-screen flex items-center justify-center bg-black px-6 py-12">
+          <div className="max-w-6xl w-full">
+            <Projects />
+          </div>
+        </section>
+
+        <section className="min-h-screen flex items-center justify-center bg-black px-6 py-12">
+          <div className="max-w-6xl w-full">
+            <Certifications />
+          </div>
+        </section>
+
+        <section className="min-h-screen flex items-center justify-center bg-black px-6 py-12">
+          <div className="max-w-6xl w-full">
+            <About />
+          </div>
+        </section>
       </div>
     </>
   );

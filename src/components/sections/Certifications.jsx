@@ -22,7 +22,6 @@ export const Certifications = () => {
           return acc;
         }, {});
 
-        // 👇 Set all sections to collapsed initially
         const initialCollapse = Object.keys(grouped).reduce((acc, key) => {
           acc[key] = true;
           return acc;
@@ -42,22 +41,20 @@ export const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="py-20 bg-white text-black">
+    <section id="certifications" className="py-20 bg-black text-white">
       <div className="max-w-5xl mx-auto px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Certifications</h2>
 
         {Object.keys(certs).length === 0 ? (
-          <p className="text-center text-gray-600">Loading certifications...</p>
+          <p className="text-center text-gray-400">Loading certifications...</p>
         ) : (
           Object.entries(certs).map(([platform, list]) => (
             <div key={platform} className="mb-12">
               <button
                 onClick={() => toggleCollapse(platform)}
-                className="text-left w-full mb-6 text-xl font-semibold text-black hover:underline"
+                className="text-left w-full mb-6 text-xl font-semibold text-white hover:underline"
               >
-                <span>
-                  {platform} {collapsed[platform] ? "▼" : "▲"}
-                </span>
+                {platform} {collapsed[platform] ? "▼" : "▲"}
               </button>
 
               {!collapsed[platform] && (
@@ -65,14 +62,14 @@ export const Certifications = () => {
                   {list.map(({ id, title, url }) => (
                     <div
                       key={id}
-                      className="p-6 rounded-xl border border-gray-300 bg-white shadow-sm hover:shadow-md transition hover:-translate-y-1"
+                      className="p-6 rounded-xl border border-gray-800 bg-[#0a0a0a] shadow-sm hover:shadow-md transition hover:-translate-y-1"
                     >
                       <h3 className="text-base font-bold mb-2">{title}</h3>
                       <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 text-sm hover:underline"
+                        className="text-gray-300 text-sm hover:text-white transition"
                       >
                         View Certificate →
                       </a>

@@ -53,19 +53,21 @@ export const Projects = () => {
   return (
     <section
       id="projects"
-      className="min-h-[70vh] flex items-center justify-center py-20 bg-white text-black"
+      className="min-h-[90vh] w-full bg-black text-white py-20 px-4"
     >
-      <div className="max-w-5xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">My Featured Projects</h2>
+      <div className="max-w-7xl w-full mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
+          My Featured Projects
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="p-6 rounded-xl border border-gray-300 bg-white shadow-sm hover:shadow-md transition hover:-translate-y-1"
+              className="p-6 rounded-2xl bg-[#0a0a0a] shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 border border-gray-800"
             >
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-600 mb-4">{project.description}</p>
+              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <p className="text-gray-400 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, i) => (
                   <a
@@ -73,13 +75,13 @@ export const Projects = () => {
                     href={`https://www.google.com/search?q=${tech}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-100 text-black py-1 px-3 rounded-full text-sm hover:bg-gray-200 transition"
+                    className="bg-gray-800 text-white py-1 px-3 rounded-full text-sm hover:bg-gray-700 transition"
                   >
                     {tech}
                   </a>
                 ))}
               </div>
-              <a href="#" className="text-black font-medium hover:underline">
+              <a href="#" className="text-gray-300 font-medium hover:text-white transition">
                 View Project →
               </a>
             </div>
