@@ -1,11 +1,9 @@
-from pathlib import Path
 
-readme_content = """
 <p align="center">
   <img src="./public/pfp1.jpg" width="120" alt="Nikhil Yarra" style="border-radius: 9999px;" />
 </p>
 
-<h1 align="center">Nikhil Yarra — Data Science Portfolio</h1>
+<h1 align="center">Nikhil Yarra — Portfolio</h1>
 
 <p align="center">
   <em>Crafting intelligent solutions with data, code, and curiosity.</em>
@@ -32,7 +30,7 @@ Everything is custom-built with modern tools and a strong focus on performance, 
 - **About Me** – Education, interests, and toolkits.
 - **Projects** – Applied AI/ML, deep learning, and analytics projects.
 - **Certifications** – 50+ verifiable credentials (Coursera, Google, LinkedIn).
-- **Experience** – Internships, technical teams, and university clubs.
+- **Experience** – Internships, technical teams.
 - **Contact** – Direct email + socials to connect.
 
 ---
@@ -118,8 +116,3 @@ Want to collaborate, ask a question, or just say hi?
 
 **Thanks for visiting!**  
 _Nikhil Yarra_
-"""
-
-readme_path = Path("/mnt/data/README.md")
-readme_path.write_text(readme_content.strip())
-readme_path
