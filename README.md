@@ -3,7 +3,7 @@
   <img src="./public/pfp1.jpg" width="120" alt="Nikhil Yarra" style="border-radius: 9999px;" />
 </p>
 
-<h1 align="center">Nikhil Yarra — Data Science Portfolio</h1>
+<h1 align="center">Nikhil Yarra — Portfolio</h1>
 
 <p align="center">
   <em>Crafting intelligent solutions with data, code, and curiosity.</em>
