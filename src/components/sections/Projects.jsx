@@ -1,6 +1,18 @@
 export const Projects = () => {
   const projects = [
     {
+      title: "Flight Data Analysis with MapReduce",
+      description:
+        "Analyzed 22 years of flight data using dual MapReduce jobs to rank airlines by punctuality and airports by taxi time.",
+      tech: ["Hadoop", "MapReduce", "Java", "AWS EMR"],
+    },
+    {
+      title: "Web Scraping Neural Development Research",
+      description:
+        "Built an R-based scraper to extract and analyze article metadata from Neural Development for keyword and trend insights.",
+      tech: ["R", "rvest", "dplyr", "ggplot2"],
+    },
+    {
       title: "Face Emotion Detection Using CNNs",
       description:
         "Built and compared CNN models (VGG, ResNet, DenseNet) for facial emotion detection with 99.89% accuracy using SMOTE and augmentation.",
