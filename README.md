@@ -1,6 +1,4 @@
-from pathlib import Path
 
-readme_content = """
 <p align="center">
   <img src="./public/pfp1.jpg" width="120" alt="Nikhil Yarra" style="border-radius: 9999px;" />
 </p>
