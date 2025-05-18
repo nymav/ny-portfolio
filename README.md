@@ -116,8 +116,3 @@ Want to collaborate, ask a question, or just say hi?
 
 **Thanks for visiting!**  
 _Nikhil Yarra_
-
-
-readme_path = Path("/mnt/data/README.md")
-readme_path.write_text(readme_content.strip())
-readme_path
