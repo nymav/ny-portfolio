@@ -14,7 +14,7 @@ export const SocialBar = () => {
 
   const socials = [
     {
-      href: "https://github.com/YarraNikhil",
+      href: "https://github.com/nymav",
       icon: <FaGithub />,
       label: "GitHub",
     },
@@ -24,12 +24,12 @@ export const SocialBar = () => {
       label: "LinkedIn",
     },
     {
-      href: "https://instagram.com/YarraNikhil",
+      href: "https://instagram.com/ny.mav",
       icon: <FaInstagram />,
       label: "Instagram",
     },
     {
-      href: "mailto:nikhilyarra@gmail.com?subject=Portfolio Inquiry&body=Hi Nikhil,",
+      href: "mailto:nikhilyarra@gmail.com?subject=Opportunity%20to%20Collaborate%20with%20You&body=Hi%20Nikhil,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20love%20to%20connect.",
       icon: <FaEnvelope />,
       label: "Email",
     },
