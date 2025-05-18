@@ -30,7 +30,7 @@ Everything is custom-built with modern tools and a strong focus on performance, 
 - **About Me** – Education, interests, and toolkits.
 - **Projects** – Applied AI/ML, deep learning, and analytics projects.
 - **Certifications** – 50+ verifiable credentials (Coursera, Google, LinkedIn).
-- **Experience** – Internships, technical teams, and university clubs.
+- **Experience** – Internships, technical teams.
 - **Contact** – Direct email + socials to connect.
 
 ---
