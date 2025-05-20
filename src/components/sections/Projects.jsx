@@ -17,6 +17,7 @@ export const Projects = () => {
       description:
         "Built and compared CNN models (VGG, ResNet, DenseNet) for facial emotion detection with 99.89% accuracy using SMOTE and augmentation.",
       tech: ["Python", "TensorFlow", "Keras", "OpenCV", "SMOTE", "Scikit-learn"],
+      link: "https://github.com/nymav/Face-Emotion-Detection-Using-CNNs"
     },
     {
       title: "Causal Inference in Healthcare",
@@ -81,9 +82,15 @@ export const Projects = () => {
                   </a>
                 ))}
               </div>
-              <a href="#" className="text-gray-300 font-medium hover:text-white transition">
-                View Project →
-              </a>
+              <a
+  href={project.link || "#"}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-gray-300 font-medium hover:text-white transition"
+>
+  View Project →
+</a>
+
             </div>
           ))}
         </div>
