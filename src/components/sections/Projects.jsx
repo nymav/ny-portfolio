@@ -30,7 +30,7 @@ export const Projects = () => {
       description:
         "Forecasted client responses using XGBoost and SVM, achieving 98% accuracy with SHAP for insights.",
       tech: ["Python", "XGBoost", "SVM", "SHAP", "Scikit-learn"],
-      link: "https://github.com/nymav/Bank-Campaign.git"
+      link: "https://github.com/nymav/Bank-Campaign"
     },
     {
       title: "Apple Stock Price Forecasting",
