@@ -50,6 +50,7 @@ export const Projects = () => {
       description:
         "Built a deep learning model using Word2Vec and CNN to classify user sentiments from tweets.",
       tech: ["TensorFlow", "Keras", "Word2Vec", "CNN"],
+      link: "https://github.com/nymav/Sentiment-Analysis-on-Uber-and-Ola",
     },
   ];
 
