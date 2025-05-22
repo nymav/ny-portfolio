@@ -31,7 +31,7 @@ export const Projects = () => {
       description:
         "Forecasted client responses using XGBoost and SVM, achieving 98% accuracy with SHAP for insights.",
       tech: ["Python", "XGBoost", "SVM", "SHAP", "Scikit-learn"],
-      link: "https://github.com/nymav/Bank-Campaign",
+      link: "https://github.com/nymav/Predictive-Modeling-for-Optimizing-Bank-Marketing-Campaigns-Using-Machine-Learning",
     },
     {
       title: "Apple Stock Price Forecasting",
