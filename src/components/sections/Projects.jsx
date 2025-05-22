@@ -5,6 +5,7 @@ export const Projects = () => {
       description:
         "Analyzed 22 years of flight data using dual MapReduce jobs to rank airlines by punctuality and airports by taxi time.",
       tech: ["Hadoop", "MapReduce", "Java", "AWS EMR"],
+      link: "https://github.com/nymav/Fligh-Data-Analysis-with-MapReduce",
     },
     {
       title: "Web Scraping Neural Development Research",
