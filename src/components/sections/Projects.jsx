@@ -45,6 +45,7 @@ export const Projects = () => {
       description:
         "Created a classifier using AdaBoost and Naive Bayes to detect DDoS attacks, reducing load by 40%.",
       tech: ["Python", "Scikit-learn", "AdaBoost", "PyQt"],
+      link: "https://github.com/nymav/DDoS-Attack-Detection-using-Machine-Learning",
     },
     {
       title: "Sentiment Analysis on Uber & Ola",
