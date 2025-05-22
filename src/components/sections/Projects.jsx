@@ -11,6 +11,7 @@ export const Projects = () => {
       description:
         "Built an R-based scraper to extract and analyze article metadata from Neural Development for keyword and trend insights.",
       tech: ["R", "rvest", "dplyr", "ggplot2"],
+      link: "https://github.com/nymav/Web-Scraping-Articles",
     },
     {
       title: "Face Emotion Detection Using CNNs",
