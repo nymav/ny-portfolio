@@ -17,7 +17,7 @@ export const Projects = () => {
       description:
         "Built and compared CNN models (VGG, ResNet, DenseNet) for facial emotion detection with 99.89% accuracy using SMOTE and augmentation.",
       tech: ["Python", "TensorFlow", "Keras", "OpenCV", "SMOTE", "Scikit-learn"],
-      link: "https://github.com/nymav/Face-Emotion-Detection-Using-CNNs"
+      link: "https://github.com/nymav/Face-Emotion-Detection-Using-CNNs",
     },
     {
       title: "Causal Inference in Healthcare",
@@ -30,7 +30,7 @@ export const Projects = () => {
       description:
         "Forecasted client responses using XGBoost and SVM, achieving 98% accuracy with SHAP for insights.",
       tech: ["Python", "XGBoost", "SVM", "SHAP", "Scikit-learn"],
-      link: "https://github.com/nymav/Bank-Campaign"
+      link: "https://github.com/nymav/Bank-Campaign",
     },
     {
       title: "Apple Stock Price Forecasting",
@@ -84,14 +84,13 @@ export const Projects = () => {
                 ))}
               </div>
               <a
-  href={project.link || "#"}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-gray-300 font-medium hover:text-white transition"
->
-  View Project →
-</a>
-
+                href={project.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 font-medium hover:text-white transition"
+              >
+                View Project →
+              </a>
             </div>
           ))}
         </div>
