@@ -87,14 +87,24 @@ export const Projects = () => {
                   </a>
                 ))}
               </div>
-              <a
-                href={project.link || "#"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 font-medium hover:text-white transition"
-              >
-                View Project →
-              </a>
+              {project.link ? (
+  <a
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-gray-300 font-medium hover:text-white transition"
+  >
+    View Project →
+  </a>
+) : (
+  <button
+    onClick={() => alert("Project details still updating...")}
+    className="text-gray-300 font-medium hover:text-white transition"
+  >
+    View Project →
+  </button>
+)}
+
             </div>
           ))}
         </div>
