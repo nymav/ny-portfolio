@@ -1,0 +1,320 @@
+[ 
+  {
+    "id": 1,
+    "title": "BCG - Data Science Job Simulation",
+    "platform": "Forage",
+    "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/SKZxezskWgmFjRvj9/Tcz8gTtprzAS4xSoK_SKZxezskWgmFjRvj9_KEEmPn4ZYGWJoA8mp_1734817743873_completion_certificate.pdf"
+  },
+  {
+    "id": 2,
+    "title": "Artificial Intelligence Foundations: Machine Learning",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/8720e1629613cf33224c94ee3822411e434bd9341b3b96f0c389d8050ab07adf?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BorEUSc%2BUSTOVRBuCkZ19vA%3D%3D"
+  },
+  {
+    "id": 3,
+    "title": "Artificial Intelligence Foundations: Thinking Machines",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/ffcb6601c4d0fffe6f564bd9ea8cf7bcd606261a9dc468d27121bbf965fb5869?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BorEUSc%2BUSTOVRBuCkZ19vA%3D%3D"
+  },
+  {
+    "id": 4,
+    "title": "Learning Data Analytics: 1 Foundations",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/f40f76b0415cc80a5b11e82ca457f4bcea5f69fe7d8d24cc0ff0f05c501002bf?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BorEUSc%2BUSTOVRBuCkZ19vA%3D%3D"
+  },
+  {
+    "id": 5,
+    "title": "Data Analysis with R Programming",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/8DZR3BC9HYY4"
+  },
+  {
+    "id": 6,
+    "title": "Digital Transformation with Google Cloud",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6385595?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 7,
+    "title": "Infrastructure and Application Modernization with Google Cloud",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6429794?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 8,
+    "title": "Innovating with Data and Google Cloud",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6385772?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 9,
+    "title": "Introduction to Generative AI",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6385519?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 10,
+    "title": "Introduction to Large Language Models",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6385471?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 11,
+    "title": "Introduction to Responsible AI",
+    "platform": "Google",
+    "url": "https://www.cloudskillsboost.google/public_profiles/72997271-a919-4b80-a955-8762c9b0959b/badges/6385566?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
+  },
+  {
+    "id": 12,
+    "title": "Introduction to Big Data with Spark and Hadoop",
+    "platform": "Coursera ",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/5W648WMSEGL9"
+  },
+  {
+    "id": 13,
+    "title": "Cybersecurity Roles, Processes & Operating System",
+    "platform": "Coursera ",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/REY8TVY256CV"
+  },
+  {
+    "id": 14,
+    "title": "Introduction to Cybersecurity Tools & Cyber Attacks",
+    "platform": "Coursera ",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/ZXWNWRYMEPKX"
+  },
+  {
+    "id": 15,
+    "title": "J.P. Morgan - Software Engineering Job Simulation",
+    "platform": "Forage",
+    "url": "https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/J.P.%20Morgan/R5iK7HMxJGBgaSbvk_J.P.%20Morgan_KEEmPn4ZYGWJoA8mp_1669486482093_completion_certificate.pdf"
+  },
+  {
+    "id": 16,
+    "title": "Agile Projects: Creating User Stories with Value in Tagia",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/DURKH4FYCZ89"
+  },
+  {
+    "id": 17,
+    "title": "Automate tasks and processes with Jira",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/MWB37CLA2H8X"
+  },
+  {
+    "id": 18,
+    "title": "Getting Started with Azure DevOps Boards",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/T9QGZ3JWX7N8"
+  },
+  {
+    "id": 19,
+    "title": "Organisational behaviour: Know your people",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/AUQYPKFH4GH3"
+  },
+  {
+    "id": 20,
+    "title": "Scrum Team Building Using Games and Interactive Tools",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/S2RP78SRP2KM"
+  },
+  {
+    "id": 21,
+    "title": "Cameras, Exposure, and Photography",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/7PMHWRD4CP35"
+  },
+  {
+    "id": 22,
+    "title": "How to use roadmaps in Jira",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/UNSHB2R2WQX3"
+  },
+  {
+    "id": 23,
+    "title": "Introduction to Software Testing",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/PR79QEXQMJ5M"
+  },
+  {
+    "id": 24,
+    "title": "Create User Stories in Jira",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/MDFFMRTE5ZGB"
+  },
+  {
+    "id": 25,
+    "title": "Get started with Jira",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/SC7Q4QSA66SA"
+  },
+  {
+    "id": 26,
+    "title": "How to create a Jira Scrum Project",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/2L3S278Z7LAF"
+  },
+  {
+    "id": 27,
+    "title": "Cloud Computing Basics (Cloud 101)",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/KDP8W6X58CUV"
+  },
+  {
+    "id": 28,
+    "title": "Cloud Computing Foundations",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/U6HV5VGTKFAE"
+  },
+  {
+    "id": 29,
+    "title": "Control Flow in RPA",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/XVT656HQEZCA"
+  },
+  {
+    "id": 30,
+    "title": "Data Manipulation in RPA",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/W28VE69FRMDZ"
+  },
+  {
+    "id": 31,
+    "title": "Ethics, Technology and Engineering",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/3EW5TBU5MYRV"
+  },
+  {
+    "id": 32,
+    "title": "RPA Basics and Introduction to UiPath",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/GQTP35BCS3KF"
+  },
+  {
+    "id": 33,
+    "title": "UI Automation and Selectors",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/ELVSHQCB6XWY"
+  },
+  {
+    "id": 34,
+    "title": "Operation Research (3): Theory",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/EUGCTSDVURA9"
+  },
+  {
+    "id": 35,
+    "title": "Software Architecture",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/9SB3ADF8HQ6Q"
+  },
+  {
+    "id": 36,
+    "title": "Software Development Processes and Methodologies",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/KCNGUZ264VXT"
+  },
+  {
+    "id": 37,
+    "title": "Database Management Essentials",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/YHGZSGDLJPR5"
+  },
+  {
+    "id": 38,
+    "title": "Introduction to R Programming for Data Science",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/N5H8JUFEJ8X9"
+  },
+  {
+    "id": 39,
+    "title": "Introduction to the Internet of Things and Embedded Systems",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/Q7PHQ7JEAR2Z"
+  },
+  {
+    "id": 40,
+    "title": "Operating Systems and You: Becoming a Power User",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/LBUKXT6SMLQT"
+  },
+  {
+    "id": 41,
+    "title": "The Bits and Bytes of Computer Networking",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/8NP4F6CVDE28"
+  },
+  {
+    "id": 42,
+    "title": "Design Thinking for Innovation",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/EYZUUTQ9WVV5"
+  },
+  {
+    "id": 43,
+    "title": "Introduction to Graph Theory",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/HJCC8UZM49RP"
+  },
+  {
+    "id": 44,
+    "title": "Data Structures",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/ZLDXVX9QJ9Y9"
+  },
+  {
+    "id": 45,
+    "title": "TCP/IP and Advanced Topics",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/NVKYND7BQMYR"
+  },
+  {
+    "id": 46,
+    "title": "Basic Image Classification with TensorFlow",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/88QTSMUW5KPK"
+  },
+  {
+    "id": 47,
+    "title": "Building Smart Business Assistants with IBM Watson",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/BUXTXSYHWPLQ"
+  },
+  {
+    "id": 48,
+    "title": "Global Environmental Management",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/JMVU3VWKB4ED"
+  },
+  {
+    "id": 49,
+    "title": "Introduction to Artificial Intelligence (AI)",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/DK9845M2PVPQ"
+  },
+  {
+    "id": 50,
+    "title": "Programming for Everybody (Getting Started with Python)",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/K6J5DFGNS3JW"
+  },
+  {
+    "id": 51,
+    "title": "Technical Support Fundamentals",
+    "platform": "Coursera",
+    "url": "https://www.coursera.org/account/accomplishments/certificate/8JCCDY44U7PX"
+  },
+  {
+    "id": 52,
+    "title": "AI Workshop: Advanced Chatbot Development",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/203ae5ba0b800f72e37b3cdb6fb9f3c2de3b3d59757f8e5f063a92d814f0fe28"
+  },
+  {
+    "id": 53,
+    "title": "Generative AI: Working with Large Language Models",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/7eb012cbb634969f76c0e586c18c3e0bce20cfc01255b9789b4b5030f0954132"
+  }
+]
