@@ -20,14 +20,14 @@ export const LoadingScreen = ({ onComplete }) => {
       );
       frame++;
 
-      if (frame > FINAL_MESSAGE.length * 4 + 10) {
+      if (frame > FINAL_MESSAGE.length * 2.5 + 1) {
         clearInterval(interval);
         setTimeout(() => {
           setVisible(false);
           onComplete();
-        }, 500); // fade out delay
+        }, 0); // fade out delay
       }
-    }, 100); // frame speed
+    }, 50); // frame speed
 
     return () => clearInterval(interval);
   }, [onComplete]);
