@@ -25,7 +25,7 @@ export const LoadingScreen = ({ onComplete }) => {
         setTimeout(() => {
           setVisible(false);
           onComplete();
-        }, 1000);
+        }, 500); // fade out delay
       }
     }, 100); // frame speed
 
