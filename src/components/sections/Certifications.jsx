@@ -22,6 +22,22 @@ export const Certifications = () => {
           return acc;
         }, {});
 
+        // Add the two new LinkedIn certifications manually
+        if (!grouped["LinkedIn"]) grouped["LinkedIn"] = [];
+
+        grouped["LinkedIn"].unshift(
+          {
+            id: "linked-new-1",
+            title: "AI Workshop: Advanced Chatbot Development",
+            url: "https://www.linkedin.com/learning/certificates/203ae5ba0b800f72e37b3cdb6fb9f3c2de3b3d59757f8e5f063a92d814f0fe28",
+          },
+          {
+            id: "linked-new-2",
+            title: "Generative AI: Working with Large Language Models",
+            url: "https://www.linkedin.com/learning/certificates/7eb012cbb634969f76c0e586c18c3e0bce20cfc01255b9789b4b5030f0954132",
+          }
+        );
+
         const initialCollapse = Object.keys(grouped).reduce((acc, key) => {
           acc[key] = true;
           return acc;
