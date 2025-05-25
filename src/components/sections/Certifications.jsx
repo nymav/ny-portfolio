@@ -16,35 +16,19 @@ export const Certifications = () => {
         });
 
         const grouped = sorted.reduce((acc, cert) => {
-          const key = cert.platform.trim();
-          if (!acc[key]) acc[key] = [];
-          acc[key].push(cert);
+          const platform = cert.platform.trim();
+          if (!acc[platform]) acc[platform] = [];
+          acc[platform].push(cert);
           return acc;
         }, {});
 
-        // Add the two new LinkedIn certifications manually
-        if (!grouped["LinkedIn"]) grouped["LinkedIn"] = [];
-
-        grouped["LinkedIn"].unshift(
-          {
-            id: "linked-new-1",
-            title: "AI Workshop: Advanced Chatbot Development",
-            url: "https://www.linkedin.com/learning/certificates/203ae5ba0b800f72e37b3cdb6fb9f3c2de3b3d59757f8e5f063a92d814f0fe28",
-          },
-          {
-            id: "linked-new-2",
-            title: "Generative AI: Working with Large Language Models",
-            url: "https://www.linkedin.com/learning/certificates/7eb012cbb634969f76c0e586c18c3e0bce20cfc01255b9789b4b5030f0954132",
-          }
-        );
-
-        const initialCollapse = Object.keys(grouped).reduce((acc, key) => {
-          acc[key] = true;
+        const collapsedState = Object.keys(grouped).reduce((acc, platform) => {
+          acc[platform] = true;
           return acc;
         }, {});
 
         setCerts(grouped);
-        setCollapsed(initialCollapse);
+        setCollapsed(collapsedState);
       })
       .catch((err) => console.error("Failed to load certifications:", err));
   }, []);
@@ -68,7 +52,7 @@ export const Certifications = () => {
             <div key={platform} className="mb-12">
               <button
                 onClick={() => toggleCollapse(platform)}
-                className="text-left w-full mb-6 text-xl font-semibold text-white hover:underline"
+                className="w-full text-left mb-4 text-xl font-semibold text-white hover:underline"
               >
                 {platform} {collapsed[platform] ? "▼" : "▲"}
               </button>
@@ -78,14 +62,14 @@ export const Certifications = () => {
                   {list.map(({ id, title, url }) => (
                     <div
                       key={id}
-                      className="p-6 rounded-xl border border-gray-800 bg-[#0a0a0a] shadow-sm hover:shadow-md transition hover:-translate-y-1"
+                      className="p-6 bg-[#0a0a0a] border border-gray-800 rounded-xl shadow-sm hover:shadow-md transition hover:-translate-y-1"
                     >
-                      <h3 className="text-base font-bold mb-2">{title}</h3>
+                      <h3 className="text-base font-medium mb-2">{title}</h3>
                       <a
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-300 text-sm hover:text-white transition"
+                        className="text-blue-400 text-sm hover:text-white transition"
                       >
                         View Certificate →
                       </a>
