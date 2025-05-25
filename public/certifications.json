@@ -1,5 +1,17 @@
 [
   {
+    "id": 52,
+    "title": "AI Workshop: Advanced Chatbot Development",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/203ae5ba0b800f72e37b3cdb6fb9f3c2de3b3d59757f8e5f063a92d814f0fe28"
+  },
+  {
+    "id": 53,
+    "title": "Generative AI: Working with Large Language Models",
+    "platform": "LinkedIn",
+    "url": "https://www.linkedin.com/learning/certificates/7eb012cbb634969f76c0e586c18c3e0bce20cfc01255b9789b4b5030f0954132"
+  },  
+  {
     "id": 1,
     "title": "BCG - Data Science Job Simulation",
     "platform": "Forage",
