@@ -5,7 +5,7 @@ export const Certifications = () => {
   const [collapsed, setCollapsed] = useState({});
 
   useEffect(() => {
-    fetch(import.meta.env.BASE_URL + "certifications.json")
+    fetch(import.meta.env.BASE_URL + "certifications.v2.json")
       .then((res) => res.json())
       .then((data) => {
         const priorityKeywords = ["Data", "AI", "Machine", "Deep", "TensorFlow", "ML"];
