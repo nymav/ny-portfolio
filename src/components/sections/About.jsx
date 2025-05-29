@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 export const About = () => {
   const mlSkills = [
     "Python", "Pandas", "NumPy", "Scikit-Learn", "TensorFlow",
@@ -11,104 +9,89 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="pt-12 bg-black text-white">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12">
-        <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
+    <section
+      id="about"
+      className="w-full py-8 sm:py-10 px-4 sm:px-6 bg-black text-white"
+      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+    >
+    <div className="mx-auto w-full max-w-[90rem]">
+      <h2 className="text-4xl font-bold mb-10 text-left border-b border-gray-700 pb-3">
+          🧠 About Me
+        </h2>
 
-        {/* Intro Card */}
-        <div className="p-8 rounded-2xl border border-gray-800 bg-[#0a0a0a] shadow-md hover:-translate-y-1 hover:shadow-lg transition-all duration-300 mb-10">
-          <p className="text-gray-300 mb-8 text-lg leading-relaxed">
-            I'm <strong>Nikhil Yarra</strong>, a graduate student in Data Science at NJIT.
-            My academic background blends applied statistics, machine learning, and modern computing systems.
-            I’ve explored everything from LLMs and deep learning to big data pipelines and visualization tools.
-          </p>
+        <div className="space-y-10">
+          {/* Intro */}
+          <div>
+            <p className="text-gray-300 text-sm mb-4">
+              I’m <strong className="text-white">Nikhil Yarra</strong>, a passionate Data Science graduate from NJIT. My focus spans
+              machine learning, deep learning, and AI applications in real-world systems. I enjoy working with LLMs,
+              data pipelines, and visual storytelling using statistics and code.
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold mb-4">AI & ML Tools</h3>
-              <div className="flex flex-wrap gap-2">
-                {mlSkills.map((skill, idx) => (
-                  <a
-                    key={idx}
-                    href={`https://www.google.com/search?q=${encodeURIComponent(skill)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-800 text-white py-1 px-3 rounded-full text-sm font-normal hover:bg-gray-700 transition"
-                  >
-                    {skill}
-                  </a>
-                ))}
+          {/* Skills */}
+          <div>
+            <h3 className="text-xl font-semibold mb-3 text-purple-400">🧰 Technical Skills</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="text-sm text-white font-medium mb-2">🔬 AI & ML Toolkit</h4>
+                <div className="flex flex-wrap gap-2">
+                  {mlSkills.map((skill, idx) => (
+                    <span key={idx} className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Data Engineering</h3>
-              <div className="flex flex-wrap gap-2">
-                {dataSkills.map((skill, idx) => (
-                  <a
-                    key={idx}
-                    href={`https://www.google.com/search?q=${encodeURIComponent(skill)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-gray-800 text-white py-1 px-3 rounded-full text-sm font-normal hover:bg-gray-700 transition"
-                  >
-                    {skill}
-                  </a>
-                ))}
+              <div>
+                <h4 className="text-sm text-white font-medium mb-2">⚙️ Data Engineering</h4>
+                <div className="flex flex-wrap gap-2">
+                  {dataSkills.map((skill, idx) => (
+                    <span key={idx} className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Education & Experience Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Education */}
-          <div className="col-span-1 p-6 rounded-xl border border-gray-800 bg-[#0a0a0a] shadow-md hover:-translate-y-1 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-bold mb-4">🎓 Education</h3>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
+          <div>
+            <h3 className="text-xl font-semibold mb-3 text-purple-400">🎓 Education</h3>
+            <ul className="text-gray-300 text-sm space-y-2">
               <li>
-                <a
-                  href="https://www.njit.edu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-white hover:underline"
-                >
-                  MS in Data Science
-                </a>{" "}
-                – NJIT (2024)
+                <span className="text-white font-semibold">MS in Data Science</span> —{" "}
+                <a href="https://www.njit.edu" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  NJIT (2024)
+                </a>
               </li>
               <li>
-                <a
-                  href="https://www.gitam.edu"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-bold text-white hover:underline"
-                >
-                  B.Tech in CSE
-                </a>{" "}
-                – GITAM
+                <span className="text-white font-semibold">B.Tech in CSE</span> —{" "}
+                <a href="https://www.gitam.edu" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  GITAM
+                </a>
               </li>
-              <li>
-                Focused on <strong>Machine Learning, Deep Learning, Reinforcement Learning, Artificial Intelligence, Cloud Computing, Big Data,</strong> and <strong>Applied Statistics</strong>.
-              </li>
+              <li>Specialized in ML, DL, RL, AI, Cloud, Big Data, and Applied Stats.</li>
             </ul>
           </div>
 
           {/* Experience */}
-          <div className="col-span-1 lg:col-span-2 p-6 rounded-xl border border-gray-800 bg-[#0a0a0a] shadow-md hover:-translate-y-1 hover:shadow-lg transition duration-300">
-            <h3 className="text-xl font-bold mb-4">💼 Experience</h3>
-            <div className="space-y-4 text-gray-300">
+          <div>
+            <h3 className="text-xl font-semibold mb-3 text-purple-400">💼 Experience</h3>
+            <div className="text-gray-300 text-sm space-y-4">
               <div>
-                <h4 className="font-semibold text-white">Data Analytics Intern – Phoenix Global</h4>
+                <h4 className="text-white font-medium">Data Analytics Intern — Phoenix Global</h4>
                 <p>
-                  Led a team of interns to design and deploy a sentiment analysis dashboard using customer feedback data. 
-                  Built automated pipelines and dashboards for business reporting and decision support.
+                  Built a sentiment analysis dashboard using AWS, Pandas, and Plotly.
+                  Automated reporting pipelines for executive insights.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-white">Technical Team Member – CYSEC, GITAM</h4>
+                <h4 className="text-white font-medium">Technical Team Member — CYSEC, GITAM</h4>
                 <p>
-                  Contributed to cybersecurity efforts using ML and OSINT tools for threat detection. Helped organize Capture The Flag (CTF) events to promote hands-on learning in ethical hacking and cybersecurity.
+                  Worked on ML-based threat detection using OSINT.
+                  Supported CTF events and cybersecurity research initiatives.
                 </p>
               </div>
             </div>
