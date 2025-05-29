@@ -1,88 +1,150 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
-import { useRef } from "react";
+import {
+  FaGithub,
+  FaLinkedinIn,
+  FaInstagram,
+  FaEnvelope,
+  FaHome,
+  FaUser,
+  FaFolderOpen,
+  FaCertificate,
+} from "react-icons/fa";
 
-export const Home = () => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+export const Home = ({ handleNavClick, isCollapsed, collapseIntro }) => {
+  const navLinks = [
+    { id: "home", icon: <FaHome />, label: "Home" },
+    { id: "projects", icon: <FaFolderOpen />, label: "Projects" },
+    { id: "certifications", icon: <FaCertificate />, label: "Certs" },
+    { id: "about", icon: <FaUser />, label: "About" },
+  ];
+
+  const socialLinks = [
+    { href: "https://github.com/nymav", icon: <FaGithub />, label: "GitHub" },
+    { href: "https://linkedin.com/in/nikhil-yarra", icon: <FaLinkedinIn />, label: "LinkedIn" },
+    { href: "https://instagram.com/ny.mav", icon: <FaInstagram />, label: "Instagram" },
+    { href: "mailto:nikhilyarra@gmail.com", icon: <FaEnvelope />, label: "Email" },
+  ];
+
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    navLinks.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section
+    <div
       id="home"
-      className="min-h-[90vh] flex items-center justify-center bg-black text-white px-6"
+      className="flex flex-col justify-between items-center min-h-screen w-full px-4 py-10 text-white"
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-      <div
-        ref={ref}
-        className="flex flex-col-reverse md:flex-row items-center justify-center max-w-6xl w-full gap-10"
-      >
-        {/* Text Section */}
+      {/* Intro */}
+      <div className="w-full max-w-md text-center">
         <motion.div
-          className="text-center md:text-left max-w-xl"
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            Hi, I'm Nikhil Yarra
-          </h1>
-
-          <h2 className="text-xl sm:text-2xl font-mono text-gray-400 mb-6">
-            <Typewriter
-              words={[
-                "Data Science Maverick",
-                "Machine Learning Enthusiast",
-                "Artificial Intelligence Explorer",
-                "LLM & NLP Practitioner",
-                "Deep Learning Tinkerer",
-                "Pythonic Problem Solver",
-              ]}
-              loop={0}
-              cursor
-              cursorStyle="|"
-              typeSpeed={60}
-              deleteSpeed={40}
-              delaySpeed={1200}
-            />
-          </h2>
-
-          <p className="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
-            I’m a curious data science graduate exploring machine learning, deep learning, and AI. I enjoy experimenting with models and building small projects that help me learn and grow.
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-            <a
-              href="#projects"
-              className="bg-white text-black py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-gray-200"
-            >
-              🚀 View Projects
-            </a>
-            <a
-              href="mailto:nikhilyarra@gmail.com?subject=Portfolio Inquiry&body=Hi Nikhil,"
-              className="border border-white text-white py-3 px-6 rounded-lg font-medium transition hover:scale-105 hover:bg-white hover:text-black"
-            >
-              ✉️ Let’s Connect
-            </a>
-          </div>
-        </motion.div>
-
-        {/* Circular Profile Image */}
-        <motion.div
-          style={{ y }}
-          className="relative w-64 h-64 md:w-72 md:h-72 flex items-center justify-center"
+          className="relative mx-auto w-44 h-44 mb-6"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.4 }}
         >
-          {/* Gradient Glow Behind */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-500 via-purple-700 to-purple-900 opacity-40 blur-[120px] z-0 scale-125"></div>          {/* Profile Image */}
+          <div className="absolute inset-0 rounded-full bg-purple-800 blur-2xl opacity-20 scale-125" />
           <img
             src={`${import.meta.env.BASE_URL}pfp1.jpg`}
-            alt="Profile of Nikhil Yarra"
-            className="relative z-10 w-60 h-60 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-xl"
+            alt="Nikhil Yarra"
+            className="relative z-10 w-44 h-44 object-cover rounded-full border-4 border-white shadow-lg"
           />
         </motion.div>
+
+        <h1 className="text-3xl font-bold mb-2">Hi, I'm Nikhil Yarra</h1>
+        <h2 className="text-lg font-mono text-purple-400 mb-4">
+          <Typewriter
+            words={[
+              "LLM & NLP Practitioner",
+              "Artificial Intelligence Explorer",
+              "Data Science Maverick",
+              "Machine Learning Enthusiast",
+            ]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={60}
+            deleteSpeed={40}
+            delaySpeed={1200}
+          />
+        </h2>
+
+        <p className="text-gray-400 text-sm leading-relaxed mb-6">
+          Data Science grad building ML, DL & AI projects. Passionate about model tinkering, learning, and innovation.
+        </p>
+
+        <div className="flex flex-col gap-3 mb-8">
+          <button
+            onClick={() => handleNavClick("projects")}
+            className="bg-white text-black py-2 px-4 rounded-md font-semibold transition hover:scale-105 hover:bg-gray-200 text-sm"
+          >
+            🚀 View Projects
+          </button>
+          <a
+            href="mailto:nikhilyarra@gmail.com?subject=Portfolio Inquiry&body=Hi Nikhil,"
+            className="border border-white text-white py-2 px-4 rounded-md font-semibold transition hover:scale-105 hover:bg-white hover:text-black text-sm"
+          >
+            ✉️ Let’s Connect
+          </a>
+        </div>
       </div>
-    </section>
+
+      {/* Navigation Icons */}
+      <div className={`grid ${isCollapsed ? 'grid-cols-2' : 'grid-cols-4'} gap-5 mt-6 mb-2`}>
+        {navLinks.map((link) => (
+          <div key={link.id} className="flex flex-col items-center group">
+            <button
+              onClick={() => handleNavClick(link.id)}
+              className={`w-12 h-12 flex items-center justify-center rounded-full shadow transition hover:scale-110 ${
+                activeSection === link.id
+                  ? "bg-purple-600 text-white ring-2 ring-purple-300"
+                  : "bg-white text-black"
+              }`}
+              aria-label={link.label}
+            >
+              {link.icon}
+            </button>
+            {!isCollapsed && (
+              <span className="text-xs text-gray-400 mt-1">{link.label}</span>
+            )}
+          </div>
+        ))}
+
+        {!isCollapsed &&
+          socialLinks.map((social) => (
+            <div key={social.href} className="flex flex-col items-center group">
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white text-black flex items-center justify-center rounded-full shadow hover:scale-110 transition"
+                aria-label={social.label}
+              >
+                {social.icon}
+              </a>
+              <span className="text-xs text-gray-400 mt-1">{social.label}</span>
+            </div>
+          ))}
+      </div>
+    </div>
   );
 };
