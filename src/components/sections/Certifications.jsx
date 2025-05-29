@@ -37,10 +37,10 @@ export const Certifications = () => {
 
   return (
     <section
-      id="certifications"
-      className="w-full py-10 sm:py-14 px-4 sm:px-6 bg-black text-white"
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-    >
+  id="certifications"
+  className="w-full min-h-[60vh] py-10 sm:py-14 px-4 sm:px-6 bg-black text-white"
+  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+>
       <div className="mx-auto w-full max-w-[90rem]">
         <h2 className="text-4xl font-bold mb-12 text-left border-b border-gray-700 pb-4">
           📜 Certifications
