@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Typewriter } from "react-simple-typewriter";
 import {
@@ -12,7 +11,7 @@ import {
   FaCertificate,
 } from "react-icons/fa";
 
-export const Home = ({ handleNavClick, isCollapsed, collapseIntro }) => {
+export const Home = ({ handleNavClick, isCollapsed }) => {
   const navLinks = [
     { id: "home", icon: <FaHome />, label: "Home" },
     { id: "projects", icon: <FaFolderOpen />, label: "Projects" },
@@ -27,35 +26,13 @@ export const Home = ({ handleNavClick, isCollapsed, collapseIntro }) => {
     { href: "mailto:nikhilyarra@gmail.com", icon: <FaEnvelope />, label: "Email" },
   ];
 
-  const [activeSection, setActiveSection] = useState("home");
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    navLinks.forEach(({ id }) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div
       id="home"
       className="flex flex-col justify-between items-center min-h-screen w-full px-4 py-10 text-white"
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-      {/* Intro */}
+      {/* Intro Section */}
       <div className="w-full max-w-md text-center">
         <motion.div
           className="relative mx-auto w-44 h-44 mb-6"
@@ -108,17 +85,13 @@ export const Home = ({ handleNavClick, isCollapsed, collapseIntro }) => {
         </div>
       </div>
 
-      {/* Navigation Icons */}
+      {/* Nav Icons */}
       <div className={`grid ${isCollapsed ? 'grid-cols-2' : 'grid-cols-4'} gap-5 mt-6 mb-2`}>
         {navLinks.map((link) => (
           <div key={link.id} className="flex flex-col items-center group">
             <button
               onClick={() => handleNavClick(link.id)}
-              className={`w-12 h-12 flex items-center justify-center rounded-full shadow transition hover:scale-110 ${
-                activeSection === link.id
-                  ? "bg-purple-600 text-white ring-2 ring-purple-300"
-                  : "bg-white text-black"
-              }`}
+              className="w-12 h-12 flex items-center justify-center rounded-full shadow transition hover:scale-110 bg-white text-black"
               aria-label={link.label}
             >
               {link.icon}
