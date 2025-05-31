@@ -30,7 +30,7 @@ export const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: X, duration: 0.35 }}
+            transition={{ delay: 0.05, duration: 0.15 }}
           >
             <p className="text-gray-300 text-sm sm:text-base mb-4">
               I’m <strong className="text-white">Nikhil Yarra</strong>, a passionate Data Science graduate from NJIT. My focus spans
@@ -45,8 +45,7 @@ export const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: X, duration: 0.35 }}
-            
+            transition={{ delay: 0.1, duration: 0.15 }}
           >
             <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">🧰 Technical Skills</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -79,8 +78,7 @@ export const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: X, duration: 0.35 }}
-            
+            transition={{ delay: 0.15, duration: 0.15 }}
           >
             <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">🎓 Education</h3>
             <ul className="text-gray-300 text-sm sm:text-base space-y-2">
@@ -106,8 +104,7 @@ export const About = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: X, duration: 0.35 }
-          }
+            transition={{ delay: 0.2, duration: 0.15 }}
           >
             <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">💼 Experience</h3>
             <div className="text-gray-300 text-sm sm:text-base space-y-4">
