@@ -70,10 +70,11 @@ export const Home = ({ handleNavClick, isCollapsed }) => {
         </p>
 
         <div className="flex flex-col gap-3 mb-8">
-          <button
-            onClick={() => handleNavClick("projects")}
-            className="bg-white text-black py-2 px-4 rounded-md font-semibold transition hover:scale-105 hover:bg-gray-200 text-sm"
-          >
+        <button
+  onClick={() => handleNavClick("projects")}
+  className="bg-white text-black py-2 px-4 rounded-md font-semibold transition hover:scale-105 hover:bg-gray-200 text-sm cursor-pointer"
+>
+
             🚀 View Projects
           </button>
           <a
@@ -90,10 +91,11 @@ export const Home = ({ handleNavClick, isCollapsed }) => {
         {navLinks.map((link) => (
           <div key={link.id} className="flex flex-col items-center group">
             <button
-              onClick={() => handleNavClick(link.id)}
-              className="w-12 h-12 flex items-center justify-center rounded-full shadow transition hover:scale-110 bg-white text-black"
-              aria-label={link.label}
-            >
+  onClick={() => handleNavClick(link.id)}
+  className="w-12 h-12 flex items-center justify-center rounded-full shadow transition hover:scale-110 bg-white text-black cursor-pointer"
+  aria-label={link.label}
+>
+
               {link.icon}
             </button>
             {!isCollapsed && (
