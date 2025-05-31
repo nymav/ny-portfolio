@@ -123,7 +123,8 @@ export const Certifications = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
+            transition={{ delay: X, duration: 0.35 }
+          }
                 >
                   <h4 className="text-lg sm:text-xl font-semibold text-purple-200">{title}</h4>
                   <div className="flex items-center gap-2 text-xs text-purple-300 mt-2 mb-1">
@@ -154,7 +155,8 @@ export const Certifications = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
+            transition={{ delay: X, duration: 0.35 }
+          }
             >
               <h4 className="text-lg sm:text-xl font-semibold text-purple-300">{title}</h4>
               <div className="flex items-center gap-2 text-xs text-gray-400 mt-2 mb-1">
