@@ -12,6 +12,24 @@ body {
   background-color: #0a0a0a;
   color: #f3f4f6;
 }
+/* Hide scrollbars globally */
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+/* Hide scrollbars across all browsers */
+body {
+  -ms-overflow-style: none;       /* IE/Edge */
+  scrollbar-width: none;          /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
 
 /* ...rest of your CSS */
 
