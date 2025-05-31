@@ -1,4 +1,8 @@
+import { useEffect, useState } from "react";
+
 export const Projects = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
   const projects = [
     {
       title: "Flight Data Analysis with MapReduce",
@@ -59,14 +63,21 @@ export const Projects = () => {
       description:
         "Built a role-based VIP login system using Flask and MySQL, featuring user authentication, dashboard views, and secure backend logic.",
       tech: ["Flask", "Python", "SQLAlchemy", "MySQL", "HTML/CSS"],
-    },    
+    },
     {
       title: "Diet of the Deep – Fish Trophic Data Analysis",
       description:
         "Exploratory analysis on 54K+ freshwater fish diet records using R and Python to reveal trophic patterns, gaps, and sampling bias.",
       tech: ["Python", "R", "Tidyverse", "GeoPandas", "Data Visualization"],
-    },    
+    },
   ];
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <section
@@ -79,30 +90,42 @@ export const Projects = () => {
           🛠️ Featured Projects
         </h2>
 
-        <div className="space-y-8">
+        <div className="grid gap-6">
           {projects.map((project, index) => (
-            <div key={index}>
-              <h3 className="text-xl font-semibold mb-1 text-purple-400">{project.title}</h3>
-              <p className="text-gray-300 text-sm mb-2">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-1">
+            <div
+              key={index}
+              className="bg-neutral-900 border border-gray-700 rounded-lg p-4"
+            >
+              <h3 className="text-lg sm:text-xl font-semibold text-purple-400">
+                {project.title}
+              </h3>
+              <p className="text-sm text-gray-300 mt-2">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mt-3">
                 {project.tech.map((tech, i) => (
-                  <span key={i} className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
+                  <span
+                    key={i}
+                    className="bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full"
+                  >
                     {tech}
                   </span>
                 ))}
               </div>
-              {project.link ? (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-purple-400 hover:text-white transition"
-                >
-                  View Project →
-                </a>
-              ) : (
-                <span className="text-sm text-gray-500 italic">Coming soon...</span>
-              )}
+              <div className="mt-3">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-purple-400 hover:text-white transition"
+                  >
+                    View Project →
+                  </a>
+                ) : (
+                  <span className="text-sm text-gray-500 italic">
+                    Coming soon...
+                  </span>
+                )}
+              </div>
             </div>
           ))}
         </div>
