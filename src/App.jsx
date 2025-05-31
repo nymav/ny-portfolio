@@ -56,13 +56,14 @@ function App() {
           </header>
         )}
 
+        {/* Initial Loading Intro */}
         {showIntro ? (
           <div className="w-full h-screen flex items-center justify-center">
             <Home handleNavClick={handleNavClick} />
           </div>
         ) : (
           <div className="flex flex-col md:flex-row min-h-screen">
-            {/* Desktop Sidebar */}
+            {/* Sidebar (Desktop) */}
             <aside
               className="hidden md:flex w-[300px] min-w-[280px] p-6 border-r border-gray-700 overflow-y-auto sticky top-0 h-screen text-white"
               style={{
@@ -75,13 +76,16 @@ function App() {
               <Home handleNavClick={handleNavClick} isCollapsed />
             </aside>
 
+            {/* Main Scrollable Content */}
             <main className="flex-1 overflow-y-auto pt-[60px] md:pt-0">
-              {/* Mobile Nav Overlay */}
+              {/* Mobile Slide-in Nav */}
               <MobileMenu
-  menuOpen={menuOpen}
-  setMenuOpen={setMenuOpen}
-  handleNavClick={handleNavClick}
-/>
+                menuOpen={menuOpen}
+                setMenuOpen={setMenuOpen}
+                handleNavClick={handleNavClick}
+              />
+
+              {/* Optional Effects */}
               <CursorSpotlight />
 
               <div className="space-y-6 px-4 pt-8 pb-12">
