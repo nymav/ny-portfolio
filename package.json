@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
-    "react-simple-typewriter": "^5.0.1"
+    "react-simple-typewriter": "^5.0.1",
+    "use-sound": "^5.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.38",
