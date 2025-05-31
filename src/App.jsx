@@ -41,12 +41,19 @@ function App() {
       {!isLoaded && <LoadingScreen onComplete={() => setIsLoaded(true)} />}
 
       <div
-        className={`w-full min-h-screen bg-black text-white font-sans transition-opacity duration-700 ${
+        className={`w-full min-h-screen text-white font-sans transition-opacity duration-700 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
-        style={{ scrollBehavior: "smooth" }}
+        style={{
+          scrollBehavior: "smooth",
+          background: "radial-gradient(ellipse at top, #3b0066 0%, #0d001a 50%, #000000 100%)",
+          backgroundAttachment: "fixed",
+
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+        }}
       >
-        {/* Mobile Top Nav */}
+        {/* Mobile Header */}
         {!showIntro && (
           <header className="md:hidden fixed top-0 left-0 right-0 z-50 bg-black/90 text-white flex items-center justify-between px-4 py-3 shadow">
             <h1 className="text-lg font-bold">Nikhil Yarra</h1>
@@ -56,36 +63,31 @@ function App() {
           </header>
         )}
 
-        {/* Initial Loading Intro */}
+        {/* Home Fullscreen Intro */}
         {showIntro ? (
-          <div className="w-full h-screen flex items-center justify-center">
+          <div className="w-full h-screen flex items-center justify-center overflow-hidden">
             <Home handleNavClick={handleNavClick} />
           </div>
         ) : (
-          <div className="flex flex-col md:flex-row min-h-screen">
-            {/* Sidebar (Desktop) */}
+          <div className="flex flex-col md:flex-row min-h-screen overflow-hidden">
+            {/* Sidebar */}
             <aside
-              className="hidden md:flex w-[300px] min-w-[280px] p-6 border-r border-gray-700 overflow-y-auto sticky top-0 h-screen text-white"
+              className="hidden md:flex w-[300px] min-w-[280px] h-screen sticky top-0 overflow-y-auto"
               style={{
-                background: "radial-gradient(circle at top, #1a002f 0%, #000000 100%)",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-                backgroundAttachment: "fixed",
+                background: "transparent",
               }}
             >
               <Home handleNavClick={handleNavClick} isCollapsed />
             </aside>
 
-            {/* Main Scrollable Content */}
-            <main className="flex-1 overflow-y-auto pt-[60px] md:pt-0">
-              {/* Mobile Slide-in Nav */}
+            {/* Scrollable Main Content */}
+            <main className="flex-1 overflow-y-auto h-screen">
               <MobileMenu
                 menuOpen={menuOpen}
                 setMenuOpen={setMenuOpen}
                 handleNavClick={handleNavClick}
               />
 
-              {/* Optional Effects */}
               <CursorSpotlight />
 
               <div className="space-y-6 px-4 pt-8 pb-12">
