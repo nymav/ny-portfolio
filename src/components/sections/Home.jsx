@@ -45,8 +45,11 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
     typeof window !== "undefined" && window.innerWidth >= 1024 && isCollapsed;
 
   useEffect(() => {
-    const handleKeyPress = () => {
-      handleNavClick(isSplitScreen ? "home" : "projects");
+    const handleKeyPress = (e) => {
+      const ignoredKeys = ["Shift", "Control", "Alt", "Meta", "Escape", "Tab"];
+      if (!ignoredKeys.includes(e.key)) {
+        handleNavClick(isSplitScreen ? "home" : "projects");
+      }
     };
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
