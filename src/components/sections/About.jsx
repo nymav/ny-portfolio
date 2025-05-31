@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export const About = () => {
   const mlSkills = [
     "Python", "Pandas", "NumPy", "Scikit-Learn", "TensorFlow",
@@ -11,28 +13,42 @@ export const About = () => {
   return (
     <section
       id="about"
-      className="w-full py-8 sm:py-10 px-4 sm:px-6 bg-black text-white"
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+      className="w-full py-8 sm:py-10 px-4 sm:px-6 text-white"
+      style={{
+        fontFamily: "'Space Grotesk', sans-serif",
+      }}
     >
       <div className="mx-auto w-full max-w-[90rem]">
-        <h2 className="text-4xl font-bold mb-10 text-left border-b border-gray-700 pb-3">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-left border-b border-gray-700 pb-3">
           🧠 About Me
         </h2>
 
         <div className="space-y-6">
           {/* Intro */}
-          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
-            <p className="text-gray-300 text-sm mb-4">
+          <motion.div
+            className="bg-black/20 backdrop-blur border border-gray-700 rounded-xl p-4 sm:p-6 hover:shadow-xl transition duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05 }}
+          >
+            <p className="text-gray-300 text-sm sm:text-base mb-4">
               I’m <strong className="text-white">Nikhil Yarra</strong>, a passionate Data Science graduate from NJIT. My focus spans
               machine learning, deep learning, and AI applications in real-world systems. I enjoy working with LLMs,
               data pipelines, and visual storytelling using statistics and code.
             </p>
-          </div>
+          </motion.div>
 
           {/* Skills */}
-          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
-            <h3 className="text-xl font-semibold mb-3 text-purple-400">🧰 Technical Skills</h3>
-            <div className="grid md:grid-cols-2 gap-4">
+          <motion.div
+            className="bg-black/20 backdrop-blur border border-gray-700 rounded-xl p-4 sm:p-6 hover:shadow-xl transition duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">🧰 Technical Skills</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <h4 className="text-sm text-white font-medium mb-2">🔬 AI & ML Toolkit</h4>
                 <div className="flex flex-wrap gap-2">
@@ -54,12 +70,18 @@ export const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Education */}
-          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
-            <h3 className="text-xl font-semibold mb-3 text-purple-400">🎓 Education</h3>
-            <ul className="text-gray-300 text-sm space-y-2">
+          <motion.div
+            className="bg-black/20 backdrop-blur border border-gray-700 rounded-xl p-4 sm:p-6 hover:shadow-xl transition duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15 }}
+          >
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">🎓 Education</h3>
+            <ul className="text-gray-300 text-sm sm:text-base space-y-2">
               <li>
                 <span className="text-white font-semibold">MS in Data Science</span> —{" "}
                 <a href="https://www.njit.edu" target="_blank" rel="noopener noreferrer" className="hover:underline">
@@ -74,12 +96,18 @@ export const About = () => {
               </li>
               <li>Specialized in ML, DL, RL, AI, Cloud, Big Data, and Applied Stats.</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Experience */}
-          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
-            <h3 className="text-xl font-semibold mb-3 text-purple-400">💼 Experience</h3>
-            <div className="text-gray-300 text-sm space-y-4">
+          <motion.div
+            className="bg-black/20 backdrop-blur border border-gray-700 rounded-xl p-4 sm:p-6 hover:shadow-xl transition duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 text-purple-400">💼 Experience</h3>
+            <div className="text-gray-300 text-sm sm:text-base space-y-4">
               <div>
                 <h4 className="text-white font-medium">Data Analytics Intern — Phoenix Global</h4>
                 <p>
@@ -95,7 +123,7 @@ export const About = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
