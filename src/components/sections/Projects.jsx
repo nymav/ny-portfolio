@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -81,10 +82,14 @@ export const Projects = () => {
 
   return (
     <section
-      id="projects"
-      className="w-full py-8 sm:py-10 px-4 sm:px-6 bg-black text-white"
-      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-    >
+  id="projects"
+  className="w-full py-8 sm:py-10 px-4 sm:px-6 text-white bg-transparent"
+  style={{
+    fontFamily: "'Space Grotesk', sans-serif",
+    background: "transparent", // REMOVE this line
+  }}
+>
+
       <div className="mx-auto w-full max-w-[90rem]">
         <h2 className="text-4xl font-bold mb-10 text-left border-b border-gray-700 pb-3">
           🛠️ Featured Projects
@@ -92,9 +97,13 @@ export const Projects = () => {
 
         <div className="grid gap-6">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-neutral-900 border border-gray-700 rounded-lg p-4"
+              className="border border-gray-700 rounded-xl p-5 hover:shadow-xl transition duration-300 bg-black/20 backdrop-blur"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
             >
               <h3 className="text-lg sm:text-xl font-semibold text-purple-400">
                 {project.title}
@@ -126,7 +135,7 @@ export const Projects = () => {
                   </span>
                 )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
