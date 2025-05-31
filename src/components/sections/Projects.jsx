@@ -54,6 +54,18 @@ export const Projects = () => {
       tech: ["Word2Vec", "CNN", "TensorFlow"],
       link: "https://github.com/nymav/Sentiment-Analysis-on-Uber-and-Ola",
     },
+    {
+      title: "Role-Based VIP Access Portal (Flask + MySQL)",
+      description:
+        "Built a role-based VIP login system using Flask and MySQL, featuring user authentication, dashboard views, and secure backend logic.",
+      tech: ["Flask", "Python", "SQLAlchemy", "MySQL", "HTML/CSS"],
+    },    
+    {
+      title: "Diet of the Deep – Fish Trophic Data Analysis",
+      description:
+        "Exploratory analysis on 54K+ freshwater fish diet records using R and Python to reveal trophic patterns, gaps, and sampling bias.",
+      tech: ["Python", "R", "Tidyverse", "GeoPandas", "Data Visualization"],
+    },    
   ];
 
   return (
