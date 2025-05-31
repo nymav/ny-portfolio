@@ -14,14 +14,14 @@ export const About = () => {
       className="w-full py-8 sm:py-10 px-4 sm:px-6 bg-black text-white"
       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
     >
-    <div className="mx-auto w-full max-w-[90rem]">
-      <h2 className="text-4xl font-bold mb-10 text-left border-b border-gray-700 pb-3">
+      <div className="mx-auto w-full max-w-[90rem]">
+        <h2 className="text-4xl font-bold mb-10 text-left border-b border-gray-700 pb-3">
           🧠 About Me
         </h2>
 
-        <div className="space-y-10">
+        <div className="space-y-6">
           {/* Intro */}
-          <div>
+          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
             <p className="text-gray-300 text-sm mb-4">
               I’m <strong className="text-white">Nikhil Yarra</strong>, a passionate Data Science graduate from NJIT. My focus spans
               machine learning, deep learning, and AI applications in real-world systems. I enjoy working with LLMs,
@@ -30,7 +30,7 @@ export const About = () => {
           </div>
 
           {/* Skills */}
-          <div>
+          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
             <h3 className="text-xl font-semibold mb-3 text-purple-400">🧰 Technical Skills</h3>
             <div className="grid md:grid-cols-2 gap-4">
               <div>
@@ -57,7 +57,7 @@ export const About = () => {
           </div>
 
           {/* Education */}
-          <div>
+          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
             <h3 className="text-xl font-semibold mb-3 text-purple-400">🎓 Education</h3>
             <ul className="text-gray-300 text-sm space-y-2">
               <li>
@@ -77,7 +77,7 @@ export const About = () => {
           </div>
 
           {/* Experience */}
-          <div>
+          <div className="bg-neutral-900 border border-gray-700 rounded-lg p-4">
             <h3 className="text-xl font-semibold mb-3 text-purple-400">💼 Experience</h3>
             <div className="text-gray-300 text-sm space-y-4">
               <div>
