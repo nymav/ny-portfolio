@@ -103,7 +103,8 @@ export const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
+              transition={{ delay: index * 0.04, duration: 0.4 }}
+
             >
               <h3 className="text-lg sm:text-xl font-semibold text-purple-400">
                 {project.title}
