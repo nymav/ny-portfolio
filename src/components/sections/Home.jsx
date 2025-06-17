@@ -14,6 +14,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
   const [coins, setCoins] = useState(0);
   const [showPowerUp, setShowPowerUp] = useState(false);
   const [showGlitch, setShowGlitch] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Updated menu options to match MobileMenu
   const menuOptions = [
@@ -31,8 +32,25 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
 
   const isSplitScreen = typeof window !== "undefined" && window.innerWidth >= 1024 && isCollapsed;
 
-  // Auto-start game when in split screen mode
+  // Mobile detection and auto-start
+  useEffect(() => {
+    const checkMobile = () => {
+      const mobile = window.innerWidth <= 768 || 
+                   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+      setIsMobile(mobile);
+      
+      // Auto-start game on mobile or split screen
+      if (mobile || isSplitScreen) {
+        setGameStarted(true);
+      }
+    };
 
+    if (typeof window !== "undefined") {
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }
+  }, [isSplitScreen]);
 
   // Cursor blinking effect
   useEffect(() => {
@@ -57,7 +75,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
 
   // Keyboard navigation
   useEffect(() => {
-    if (!gameStarted && !isSplitScreen) {
+    if (!gameStarted && !isSplitScreen && !isMobile) {
       const handleKeyPress = (e) => {
         if (e.key === "Enter" || e.key === " ") {
           setGameStarted(true);
@@ -91,7 +109,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
           setCoins(prev => prev + 5);
           break;
         case "Escape":
-          if (!isSplitScreen) {
+          if (!isSplitScreen && !isMobile) {
             setGameStarted(false);
           }
           break;
@@ -100,7 +118,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [gameStarted, selectedOption, handleNavClick, menuOptions, isSplitScreen]);
+  }, [gameStarted, selectedOption, handleNavClick, menuOptions, isSplitScreen, isMobile]);
 
   const collectCoin = () => {
     setCoins(prev => prev + 1);
@@ -215,8 +233,8 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
       </AnimatePresence>
 
       <div className="flex flex-col items-center justify-center min-h-screen p-4 relative z-10">
-        {!gameStarted && !isSplitScreen ? (
-          // Start Screen (only show when not in split screen)
+        {!gameStarted && !isSplitScreen && !isMobile ? (
+          // Start Screen (only show when not in split screen and not mobile)
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -259,7 +277,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
             </div>
           </motion.div>
         ) : (
-          // Game Menu (show when game started OR in split screen)
+          // Game Menu (show when game started OR in split screen OR on mobile)
           <motion.div
             initial={{ x: -100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -351,10 +369,14 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
               ))}
             </div>
 
-            {/* Controls - matching MobileMenu */}
+            {/* Controls - updated for mobile */}
             <div className="text-xs text-gray-400 space-y-1">
-              <div>↑↓ NAVIGATE • ENTER SELECT {!isSplitScreen && "• ESC BACK TO START"}</div>
-              <div className="text-cyan-400">CLICK TO SELECT • HOVER TO NAVIGATE</div>
+              {!isMobile && (
+                <div>↑↓ NAVIGATE • ENTER SELECT {!isSplitScreen && "• ESC BACK TO START"}</div>
+              )}
+              <div className="text-cyan-400">
+                {isMobile ? "TAP TO SELECT" : "CLICK TO SELECT • HOVER TO NAVIGATE"}
+              </div>
             </div>
           </motion.div>
         )}
