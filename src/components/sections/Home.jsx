@@ -167,15 +167,6 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
         />
       )}
 
-      {/* HUD - matching MobileMenu */}
-      {gameStarted && (
-        <div className="absolute top-4 left-4 text-green-400 font-mono text-xs z-20">
-          <div className="bg-black/80 p-2 rounded border border-green-400">
-            <div>MODE: HOME</div>
-            <div>COINS: {coins}</div>
-          </div>
-        </div>
-      )}
 
       {/* Floating coins */}
       <AnimatePresence>
