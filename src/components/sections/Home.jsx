@@ -32,12 +32,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
   const isSplitScreen = typeof window !== "undefined" && window.innerWidth >= 1024 && isCollapsed;
 
   // Auto-start game when in split screen mode
-  useEffect(() => {
-    if (isSplitScreen) {
-      setGameStarted(true);
-      setCoins(50); // Give bonus coins for split screen mode
-    }
-  }, [isSplitScreen]);
+
 
   // Cursor blinking effect
   useEffect(() => {
@@ -48,14 +43,7 @@ export const Home = ({ handleNavClick, isCollapsed = false }) => {
   }, []);
 
   // Power-up effect
-  useEffect(() => {
-    const powerUpInterval = setInterval(() => {
-      setShowPowerUp(true);
-      setTimeout(() => setShowPowerUp(false), 2000);
-    }, 10000);
-    return () => clearInterval(powerUpInterval);
-  }, []);
-
+  
   // Glitch effect - matching MobileMenu
   useEffect(() => {
     if (gameStarted) {
