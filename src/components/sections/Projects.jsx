@@ -13,6 +13,15 @@ export const Projects = () => {
 
   const projects = [
     {
+      title: "DRAX TBS - AI-Powered Tutoring System",
+      description: "Built RAG-based tutoring API that processes PDF textbooks and provides intelligent tutoring through conversational AI.",
+      tech: ["Python", "FastAPI", "ChromaDB", "Sentence Transformers", "SQLite", "LM Studio"],
+      link: "https://github.com/nymav/drax_tbs",
+      category: "ai-ml",
+      difficulty: "LEGENDARY",
+      icon: "🎓"
+     },
+    {
       title: "Flight Data Analysis with MapReduce",
       description: "Analyzed 22 years of flight data using MapReduce jobs to rank airlines and airports.",
       tech: ["Hadoop", "MapReduce", "Java", "AWS EMR"],
