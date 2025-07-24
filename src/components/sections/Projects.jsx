@@ -112,7 +112,7 @@ export const Projects = () => {
       description: "A Streamlit app that lets you chat with your CSV data and get AI-powered price predictions. Features natural language CSV queries, ML property price predictions, and LM Studio integration.",
       tech: ["Python", "Streamlit", "Pandas", "Scikit-learn", "LM Studio"],
       category: "ai-ml",
-      difficulty: "RARE",
+      difficulty: "LEGENDARY",
       link: "https://github.com/nymav/DaChat",
       icon: "💬"
     },
@@ -121,7 +121,7 @@ export const Projects = () => {
       description: "A vibrant, glowing React + Vite + Tailwind CSS portfolio template designed for AI/ML projects with gaming aesthetics, smooth transitions, and dark-themed UI.",
       tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "JavaScript"],
       category: "web-dev",
-      difficulty: "RARE",
+      difficulty: "EPIC",
       link: "https://github.com/nymav/synapshowcase",
       icon: "🎮"
     }
@@ -489,12 +489,13 @@ export const Projects = () => {
             <div className="text-sm font-semibold text-purple-400 mb-3">🎮 SELECT PROJECT CATEGORY:</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 text-xs">
               {[
-                { key: "ai-ml", label: "🤖 AI/ML MASTER", keyNum: "5" },
-                { key: "data-science", label: "📊 DATA WIZARD", keyNum: "2" },
-                { key: "cybersecurity", label: "🔐 CYBER GUARD", keyNum: "1" },
-                { key: "web-dev", label: "🌐 WEB NINJA", keyNum: "1" },
-                { key: "big-data", label: "💾 BIG DATA", keyNum: "1" },
-                { key: "all", label: "🌟 ALL PROJECTS", keyNum: "9" }
+                  { key: "ai-ml", label: "🤖 AI/ML MASTER", keyNum: "6" },
+                  { key: "data-science", label: "📊 DATA WIZARD", keyNum: "3" },
+                  { key: "cybersecurity", label: "🔐 CYBER GUARD", keyNum: "1" },
+                  { key: "web-dev", label: "🌐 WEB NINJA", keyNum: "2" },
+                  { key: "big-data", label: "💾 BIG DATA", keyNum: "1" },
+                  { key: "all", label: "🌟 ALL PROJECTS", keyNum: "13" }
+                
               ].map((category) => (
                 <motion.button
                   key={category.key}
