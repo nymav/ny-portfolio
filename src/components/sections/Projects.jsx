@@ -20,7 +20,7 @@ export const Projects = () => {
       category: "ai-ml",
       difficulty: "LEGENDARY",
       icon: "🎓"
-     },
+    },
     {
       title: "Flight Data Analysis with MapReduce",
       description: "Analyzed 22 years of flight data using MapReduce jobs to rank airlines and airports.",
@@ -106,6 +106,15 @@ export const Projects = () => {
       category: "data-science",
       difficulty: "EPIC",
       icon: "🐟"
+    },
+    {
+      title: "DaChat - CSV Chat + ML Predictions",
+      description: "A Streamlit app that lets you chat with your CSV data and get AI-powered price predictions. Features natural language CSV queries, ML property price predictions, and LM Studio integration.",
+      tech: ["Python", "Streamlit", "Pandas", "Scikit-learn", "LM Studio"],
+      category: "ai-ml",
+      difficulty: "RARE",
+      link: "https://github.com/nymav/DaChat",
+      icon: "💬"
     },
   ];
 
