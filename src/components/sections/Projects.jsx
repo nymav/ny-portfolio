@@ -116,6 +116,15 @@ export const Projects = () => {
       link: "https://github.com/nymav/DaChat",
       icon: "💬"
     },
+    {
+      title: "synapshowcase - Developer Portfolio Template",
+      description: "A vibrant, glowing React + Vite + Tailwind CSS portfolio template designed for AI/ML projects with gaming aesthetics, smooth transitions, and dark-themed UI.",
+      tech: ["React", "Vite", "Tailwind CSS", "Framer Motion", "JavaScript"],
+      category: "web-dev",
+      difficulty: "RARE",
+      link: "https://github.com/nymav/synapshowcase",
+      icon: "🎮"
+    }
   ];
 
   // Handle window resize
