@@ -40,6 +40,18 @@ export const About = () => {
       title: "💼 QUEST COMPLETIONS",
       items: [
         { 
+          name: "Data Analyst", 
+          location: "Tubman Technologies Inc. (Apr 2025 – Present)",
+          description: "Built ML models for complex datasets, implemented DL algorithms for predictive analytics. Deployed AI-driven ETL pipelines and NLP/CV techniques for enhanced data interoperability.",
+          rarity: "LEGENDARY"
+        },
+        { 
+          name: "Data Analyst", 
+          location: "SYMNN (Jul 2022 – Jul 2023)",
+          description: "Analyzed telecommunications network data for fiber/copper/hybrid infrastructure planning. Supported network optimization for major operators including NBN, Telstra, Verizon, AT&T.",
+          rarity: "EPIC"
+        },
+        { 
           name: "Data Analytics Intern", 
           location: "Phoenix Global",
           description: "Built sentiment analysis dashboard using AWS, Pandas, and Plotly. Automated reporting pipelines.",
