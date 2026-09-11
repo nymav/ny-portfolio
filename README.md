@@ -1,118 +1,41 @@
+# Nikhil Yarra — Cinematic Portfolio
 
-<p align="center">
-  <img src="./public/pfp1.jpg" width="120" alt="Nikhil Yarra" style="border-radius: 9999px;" />
-</p>
+React, TypeScript and Vite portfolio with eight case studies, GSAP transitions, Three.js graphics and optional synthesized sound.
 
-<h1 align="center">Nikhil Yarra — Portfolio</h1>
+## Run
 
-<p align="center">
-  <em>Crafting intelligent solutions with data, code, and curiosity.</em>
-</p>
+Use Node.js 22.12+ (or a newer supported LTS release).
 
-<p align="center">
-  <a href="https://github.com/nymav/ny-portfolio"><img alt="Status" src="https://img.shields.io/badge/status-active-brightgreen?style=flat-square"></a>
-  <a href="https://github.com/nymav/ny-portfolio/blob/main/LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></a>
-  <a href="https://vitejs.dev/"><img alt="Vite" src="https://img.shields.io/badge/built%20with-Vite-646CFF?style=flat-square&logo=vite&logoColor=white"></a>
-</p>
-
----
-
-## 🧠 About
-
-This is my personal portfolio — a live showcase of my growth and learning as a data science enthusiast. From building ML-powered dashboards to studying LLMs and AI pipelines, I document my journey here.
-
-Everything is custom-built with modern tools and a strong focus on performance, readability, and clean design.
-
----
-
-## 📂 Sections
-
-- **About Me** – Education, interests, and toolkits.
-- **Projects** – Applied AI/ML, deep learning, and analytics projects.
-- **Certifications** – 50+ verifiable credentials (Coursera, Google, LinkedIn).
-- **Experience** – Internships, technical teams.
-- **Contact** – Direct email + socials to connect.
-
----
-
-## ⚙️ Tech Stack
-
-- React • Vite • Tailwind CSS  
-- Framer Motion • JavaScript ES6+  
-- GitHub Pages (for deployment)
-
----
-
-## 🚀 Run It Locally
-
-```bash
-git clone https://github.com/nymav/ny-portfolio.git
-cd ny-portfolio
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Now open: [http://localhost:5173](http://localhost:5173)
+## Production
 
----
-
-## 🛫 Deploying to GitHub Pages
-
-To build and deploy the site:
-
-```bash
+```sh
 npm run build
-npm run deploy
+npm run preview
 ```
 
-Make sure your `vite.config.js` includes:
+Deploy the generated `dist/` folder to a static web host. Use an HTTP server rather than opening index.html as a local file.
 
-```js
-export default defineConfig({
-  base: "/ny-portfolio/",
-  ...
-});
-```
+## Content
 
-> The portfolio will be live at `https://nymav.github.io/ny-portfolio/`
+Project and career content is in `src/App.tsx`; the visual system is in `src/styles.css`. The contact footer currently contains internal navigation links. Replace these with verified contact URLs before publishing. No email, repository URLs or performance claims have been invented.
 
----
+## Improvements
 
-## 🧩 Folder Structure
+- Native modal index with Escape dismissal, focus containment/restoration, and section focus after navigation.
+- Skip-to-projects link, visible keyboard focus, selected-project semantics and keyboard-scrollable architecture.
+- Project selection and next-project actions move to the selected case study.
+- Restored pinned desktop career timeline with measured camera stops that fit each entry; static mobile and reduced-motion fallbacks.
+- Reduced motion disables smooth scrolling and reveal/hover motion; static content remains readable.
+- WebGL initialization fails gracefully; GPU geometry and materials are disposed on unmount.
+- Corrected invalid CSS arithmetic and replaced misaligned diagram lines with node-relative arrows.
+- Larger labels, readable mobile constellation and contact headline, contrasting fixed navigation.
+- Dependency lockfile for repeatable installs.
 
-```
-src/
-├── components/
-│   ├── Navbar, MobileMenu, SocialBar
-│   └── sections/ → Home, About, Projects, Certifications, Contact
-├── assets/
-├── index.css → Tailwind & global styles
-├── App.jsx
-└── main.jsx
-```
+Google Fonts requires an internet connection; system font fallbacks are provided. Graphics are illustrative, not live model outputs.
 
----
-
-## ✨ What's Next?
-
-- [x] Mobile responsive layout  
-- [x] Scroll animations  
-- [x] Certification viewer  
-- [ ] Dark mode toggle ☀️🌙  
-- [ ] PDF resume download  
-- [ ] Blog integration or notes tab  
-
----
-
-## 📫 Contact Me
-
-Want to collaborate, ask a question, or just say hi?
-
-📧 [nikhilyarra@gmail.com](mailto:nikhilyarra@gmail.com)  
-🔗 [LinkedIn](https://linkedin.com/in/nikhil-yarra)  
-🐙 [GitHub](https://github.com/nymav)
-
----
-
-**Thanks for visiting!**  
-_Nikhil Yarra_
+Timeline stops occupy separate horizontal space while preserving the animated camera journey. Project introductions and animated worlds use separate responsive layout areas to avoid overlapping text.
