@@ -8,7 +8,14 @@ An interactive, cinematic portfolio for work across agentic AI, retrieval, multi
 
 - A flowing network interface that connects projects, systems, experience, and contact.
 - Eight case studies spanning computer vision, local AI interfaces, predictive modeling, data engineering, and causal analysis.
-- A pinned experience timeline with responsive layouts for desktop and mobile.
+- An automatically advancing experience and education explorer with keyboard-accessible tabs.
+- Fluid section layouts, restrained glass controls, and reduced-motion support.
+- Three featured project studies, five additional experiments, scrolling tool ribbons and soft section backdrops.
+- Native scrolling with gentle section lift transitions; selected case studies remain stable while reading.
+- Automatically sequenced problem, implementation, outcome, and repository details.
+- A compact portrait and background integrated into the experience section.
+- A global pause control, interaction pauses, and reduced-motion fallbacks.
+- Offscreen canvas and project-strip animations pause to reduce idle work.
 - Evidence links to the public GitHub repositories behind the featured work.
 
 ## Run locally
@@ -31,13 +38,13 @@ npm run preview
 
 ## Deploy
 
-The static production output is published from the `gh-pages` branch for GitHub Pages. Build the project, then publish the generated `dist/` directory with your preferred GitHub Pages workflow.
+The static production output is published from the `gh-pages` branch for GitHub Pages. Run `npm run build:pages`, then publish the generated `dist/` directory to `gh-pages`. The Pages build uses `/ny-portfolio/` as its asset base; the local development build uses `/`.
 
 ## Project map
 
 | Project | Focus | Repository |
 | --- | --- | --- |
-| DRAX TBS | A game-like tactical system prototype | [drax_tbs](https://github.com/nymav/drax_tbs) |
+| DRAX TBS | Local retrieval-augmented tutoring and knowledge system | [drax_tbs](https://github.com/nymav/drax_tbs) |
 | DaChat | Local Streamlit AI interface for CSV and property-price prediction workflows | [DaChat](https://github.com/nymav/DaChat) |
 | Face Emotion Detection | CNN-based facial emotion recognition | [Face-Emotion-Detection-Using-CNNs](https://github.com/nymav/Face-Emotion-Detection-Using-CNNs) |
 | DDoS Attack Detection | Machine-learning classification for network attacks | [DDoS Attack Detection](https://github.com/nymav/DDoS-Attack-Detection-using-Machine-Learning) |
@@ -48,7 +55,7 @@ The portfolio also includes Causal Med and Apple Sequence as exploratory systems
 
 ## Built with
 
-React, TypeScript, Vite, GSAP, Lenis, Three.js, Canvas, and GitHub Pages.
+React, TypeScript, Vite, GSAP, Canvas, and GitHub Pages.
 
 ## Connect
 
