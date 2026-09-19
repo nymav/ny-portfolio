@@ -72,3 +72,11 @@ Reference: https://azeez-shaik.vercel.app/ (main, Creative Space, and Contact).
 - Added direct email already published in the portfolio README; clarified hero positioning; lowered background lettering after hero; extended detail timing.
 - Desktop 1440×900 and mobile 390×844 visually reviewed. Mobile document width 390 with no horizontal overflow; console error check empty; production build and whitespace check passed.
 - Workplace delivery examples await owner confirmation. No invented outcomes or résumé file added.
+
+## Reading and hierarchy pass — 19 September 2026
+- Broadened introduction to LLM applications, model integration and evaluation.
+- Case studies now open on demand and close back to selected work, removing the default duplicate study from the page.
+- Core study information is visible together. Experience no longer auto-switches; supplementary tool ribbons retain motion.
+- DRAX lead preview explains source-backed tutor modes rather than featuring its missing-document response.
+- Desktop and 390px mobile opening/closing checked; no horizontal overflow or console errors.
+- Real product recordings, current résumé and specific workplace outcomes still require source material.

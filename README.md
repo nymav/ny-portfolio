@@ -8,11 +8,11 @@ An interactive, cinematic portfolio for work across agentic AI, retrieval, multi
 
 - A flowing network interface that connects projects, systems, experience, and contact.
 - Eight case studies spanning computer vision, local AI interfaces, predictive modeling, data engineering, and causal analysis.
-- An automatically advancing experience and education explorer with keyboard-accessible tabs.
+- An experience and education explorer with keyboard-accessible tabs and stable reading states.
 - Fluid section layouts, restrained glass controls, and reduced-motion support.
 - Three featured project studies, five additional experiments, scrolling tool ribbons and soft section backdrops.
 - Native scrolling with gentle section lift transitions; selected case studies remain stable while reading.
-- Automatically sequenced problem, implementation, outcome, and repository details.
+- On-demand case studies with problem, implementation and status visible together.
 - A compact portrait and background integrated into the experience section.
 - A global pause control, interaction pauses, and reduced-motion fallbacks.
 - Offscreen canvas and project-strip animations pause to reduce idle work.

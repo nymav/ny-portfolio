@@ -10,7 +10,7 @@ import Experience from './Experience';
 import EvidencePanel from './EvidencePanel';
 import ProjectPreview from './ProjectPreview';
 import ContentRibbon from './ContentRibbon';
-import {MotionProvider,useMotion,useAutoAdvance} from './Motion';
+import {MotionProvider,useMotion} from './Motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,6 +39,7 @@ function Portfolio(){
  const motion=useMotion();
  const [active,setActive]=useState(0), [indexOpen,setIndexOpen]=useState(false);
 
+ const [caseOpen,setCaseOpen]=useState(()=>location.hash==='#case-study');
  const project=projects[active];
  // The chosen case study stays selected while its evidence is being read.
  useEffect(()=>{
@@ -61,7 +62,7 @@ function Portfolio(){
   return()=>document.removeEventListener('click',navigate,true);
  },[]);
  const chooseProject=useCallback((i:number)=>{
-   flushSync(()=>setActive(i));
+   flushSync(()=>{setActive(i);setCaseOpen(true)});
    window.dispatchEvent(new CustomEvent('neural-select',{detail:i}));
    const target=document.getElementById('case-study');
    if(target){
@@ -95,7 +96,7 @@ function Portfolio(){
    <Hero/>
    <div className="content-flow">
    <ProjectDirectory active={active} setActive={chooseProject}/>
-   <ProjectScene project={project} next={()=>chooseProject((active+1)%projects.length)}/>
+   {caseOpen&&<ProjectScene project={project} close={()=>{flushSync(()=>setCaseOpen(false));const target=document.getElementById("systems")!;window.scrollTo({top:sectionTop(target),behavior:"instant"});target.setAttribute("tabindex","-1");target.focus({preventScroll:true});history.replaceState(null,"","#systems")}}/>}
    <Experience/>
    <Contact/>
    </div>
@@ -105,20 +106,17 @@ function Portfolio(){
 
 function MinimalNav({onIndex}:{onIndex:()=>void}){
  const motion=useMotion();
- const [section,setSection]=useState('IDENTITY');
- useEffect(()=>{let af=0;const update=()=>{cancelAnimationFrame(af);af=requestAnimationFrame(()=>{const sections=[['identity','IDENTITY'],['systems','PROJECTS'],['case-study','CASE STUDY'],['work','EXPERIENCE'],['contact','CONTACT']];let current='IDENTITY';for(const [id,label] of sections){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=innerHeight*.42)current=label}setSection(current)})};update();addEventListener('scroll',update,{passive:true});return()=>{cancelAnimationFrame(af);removeEventListener('scroll',update)}},[]);
+ const [section,setSection]=useState('HOME');
+ useEffect(()=>{let af=0;const update=()=>{cancelAnimationFrame(af);af=requestAnimationFrame(()=>{const sections=[['identity','HOME'],['systems','WORK'],['case-study','CASE STUDY'],['work','EXPERIENCE'],['contact','CONTACT']];let current='HOME';for(const [id,label] of sections){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=innerHeight*.42)current=label}setSection(current)})};update();addEventListener('scroll',update,{passive:true});return()=>{cancelAnimationFrame(af);removeEventListener('scroll',update)}},[]);
  return <div className="chrome"><button className="progress-glyph" onClick={onIndex} aria-label="Open quick index"><span>NY</span><i/><span>INDEX</span></button><button className="motion-control" onClick={motion.toggle} aria-pressed={motion.paused} aria-label={motion.paused?'Resume automatic motion':'Pause automatic motion'}>{motion.paused?'PLAY ↗':'PAUSE Ⅱ'}</button><span className="current-section">{section}</span></div>
 }
-function Hero(){return <section className="hero" id="identity"><div className="hero-stage"><p className="hero-kicker">APPLIED AI ENGINEER / SELECTED WORK</p><h1 className="hero-name">Nikhil<br/><i>Yarra.</i></h1><div className="hero-caption"><span className="eyebrow">MODELS ARE THE START.</span><p className="hero-copy">I build local AI tools and retrieval systems.<br/>Then examine where they break.</p><a className="hero-cta" href="#systems">Explore selected work <span aria-hidden="true">↗</span></a></div></div><div className="hero-bottom"><span>PYTHON / AI / DATA</span><span>ENGINEERING, WITH CURIOSITY.</span><a href="#work">BACKGROUND ↓</a></div></section>}
+function Hero(){return <section className="hero" id="identity"><div className="hero-stage"><p className="hero-kicker">APPLIED AI ENGINEER / SELECTED WORK</p><h1 className="hero-name">Nikhil<br/><i>Yarra.</i></h1><div className="hero-caption"><span className="eyebrow">MODELS ARE THE START.</span><p className="hero-copy">I build LLM applications and machine-learning systems.<br/>Retrieval, model integration and evaluation.</p><a className="hero-cta" href="#systems">Explore selected work <span aria-hidden="true">↗</span></a></div></div><div className="hero-bottom"><span>PYTHON / AI / DATA</span><span>ENGINEERING, WITH CURIOSITY.</span><a href="#work">BACKGROUND ↓</a></div></section>}
 
 function ProjectDirectory({active,setActive}:{active:number;setActive:(n:number)=>void}){return <section className="project-directory" id="systems"><header><span className="eyebrow">01 / THREE SELECTED STUDIES</span><h2>From question<br/><i>to working system.</i></h2><p className="section-deck">A closer look at LLM applications, model evaluation and distributed data. Explore the behavior, evidence and engineering decisions.</p></header><div className="featured-work">{[0,2,7].map((i,rank)=><article key={projects[i].id}><div className="featured-summary"><span className="eyebrow">0{rank+1} / {projects[i].kicker}</span><h3><button onClick={()=>setActive(i)}>{projects[i].name}<span aria-hidden="true">↗</span></button></h3><p>{projects[i].desc}</p><div className="featured-links"><button onClick={()=>setActive(i)}>Explore the study ↗</button><a href={projectEvidence[projects[i].id].url} target="_blank" rel="noreferrer">Source ↗</a></div></div><ProjectPreview id={projects[i].id}/></article>)}</div><details className="project-index-disclosure" onToggle={()=>requestAnimationFrame(()=>ScrollTrigger.refresh())}><summary>More experiments / 05 <span aria-hidden="true">↘</span></summary><div className="project-list">{projects.map((p,i)=>[0,2,7].includes(i)?null:<button key={p.id} aria-label={`Open ${p.name} case study`} aria-pressed={i===active} aria-controls="case-study" onClick={()=>setActive(i)}><span>{p.n}</span><strong>{p.name}</strong><em>{p.kicker}</em><span aria-hidden="true">↗</span></button>)}</div></details></section>}
 
-function ProjectScene({project,next}:{project:Project;next:()=>void}){const evidence=projectEvidence[project.id];return <section id="case-study" tabIndex={-1} aria-label={`${project.name} case study`} className={`project-scene scene-${project.id}`} style={{'--accent':project.accent} as React.CSSProperties}><div className="project-opening" key={'opening-'+project.id}><div className="case-copy"><span className="case-index">{project.n} / 08 · {project.kicker}</span><a className="back-to-systems" href="#systems">← ALL SYSTEMS</a><h2>{project.name}</h2><p className="case-lead">{project.desc}</p>{evidence&&<div className="project-proof-links"><a href={evidence.url} target="_blank" rel="noreferrer">View source ↗</a>{evidence.artifact&&<a href={evidence.artifact} target="_blank" rel="noreferrer">View results ↗</a>}</div>}<a className="case-jump" href="#implementation">Explore the implementation ↓</a></div></div><EvidencePanel id={project.id}/><ProjectDetails key={project.id} project={project}/><ContentRibbon label="Tools and frameworks" items={project.stack}/><button className="next-world" onClick={next}><span>NEXT PROJECT ↗</span><strong>{projects[(projects.findIndex(p=>p.id===project.id)+1)%projects.length].name}</strong></button></section>}
+function ProjectScene({project,close}:{project:Project;close:()=>void}){const evidence=projectEvidence[project.id];return <section id="case-study" tabIndex={-1} aria-label={`${project.name} case study`} className={`project-scene scene-${project.id}`}><div className="case-toolbar"><span className="case-index">{project.kicker} / {evidence?'REPOSITORY STUDY':'EXPLORATORY STUDY'}</span><button onClick={close} aria-label="Close case study">Close study ×</button></div><h2 className="study-title">{project.name}</h2><ProjectDetails project={project}/><EvidencePanel id={project.id}/>{evidence&&<div className="project-proof-links"><a href={evidence.url} target="_blank" rel="noreferrer">Explore source ↗</a>{evidence.artifact&&<a href={evidence.artifact} target="_blank" rel="noreferrer">Original results ↗</a>}</div>}<ContentRibbon label="Tools and frameworks" items={project.stack}/></section>}
 function ProjectDetails({project}:{project:Project}){
- const [step,setStep]=useState(0);const [reading,setReading]=useState(false);const evidence=projectEvidence[project.id];
- const details=[['PROBLEM',project.problem],['IMPLEMENTATION',project.approach],['OUTCOME',project.result],...(evidence?[['IN THE REPOSITORY',evidence.fact]]:[])];
- useAutoAdvance('implementation',()=>setStep(value=>(value+1)%details.length),9000,!reading);
- return <div className="project-details" id="implementation"><div className="detail-tabs" aria-label="Project details">{details.map(([label],i)=><button key={label} aria-pressed={i===step} onClick={()=>{setReading(true);setStep(i)}}>{String(i+1).padStart(2,'0')} / {label}</button>)}</div><div className="detail-stage" key={step}><p>{details[step][1]}</p>{step===3&&evidence&&<a href={evidence.url+'#readme'} target="_blank" rel="noreferrer">Read the documentation ↗</a>}</div></div>
+ return <div className="study-details">{[['THE QUESTION',project.problem],['ENGINEERING',project.approach],['RESULT & STATUS',project.result]].map(([label,copy])=><div key={label}><h3>{label}</h3><p>{copy}</p></div>)}</div>
 }
 
 function Contact(){return <section className="contact" id="contact"><div className="contact-intro"><span className="eyebrow">03 / THE NEXT CONVERSATION</span><p>Good work starts with<br/>an interesting conversation.</p></div><a className="contact-invitation" href="mailto:nikhilyarra@gmail.com" aria-label="Email Nikhil Yarra"><h2>Let’s <i>talk.</i></h2><span aria-hidden="true">↗</span></a><div className="contact-bottom"><p className="contact-note">Let’s discuss applied AI engineering,<br/>LLM applications or data-intensive products.</p><div className="contact-channels"><a href="mailto:nikhilyarra@gmail.com"><span>WRITE DIRECTLY</span>Email ↗</a><a href="https://www.linkedin.com/in/nikhil-yarra/" target="_blank" rel="noreferrer"><span>START A CONVERSATION</span>LinkedIn ↗</a><a href="https://github.com/nymav" target="_blank" rel="noreferrer"><span>FOLLOW THE WORK</span>GitHub ↗</a></div></div><footer className="end-mark"><a className="footer-signature" href="#identity">Nikhil <i>Yarra.</i></a><span>APPLIED AI · DATA · EXPERIMENTS</span><a href="#identity">BACK TO TOP ↑</a></footer></section>}
@@ -126,7 +124,7 @@ function Contact(){return <section className="contact" id="contact"><div classNa
 function IndexOverlay({onClose}:{onClose:()=>void}){
  const ref=useRef<HTMLDialogElement>(null);
  useEffect(()=>{const dialog=ref.current;const previous=document.activeElement as HTMLElement|null;dialog?.showModal();const overflow=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{dialog?.close();document.body.style.overflow=overflow;previous?.focus()}},[]);
- return <dialog ref={ref} className="index-overlay" aria-label="Quick index" data-lenis-prevent onCancel={e=>{e.preventDefault();onClose()}}><button autoFocus onClick={onClose}>CLOSE ×</button><div className="index-main"><div><h3>NIKHIL YARRA</h3><p>AI ENGINEER</p></div><nav aria-label="Sections">{[['IDENTITY','#identity'],['PROJECTS','#systems'],['EXPERIENCE','#work'],['CONTACT','#contact']].map(([a,b])=><a href={b} onClick={e=>{e.preventDefault();onClose();requestAnimationFrame(()=>{const target=document.querySelector<HTMLElement>(b);target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true});target?.scrollIntoView();history.replaceState(null,'',b)})}} key={a}>{a}<span aria-hidden="true">↘</span></a>)}</nav><div className="index-meta"><span>AGENTIC AI</span><span>RAG</span><span>MULTIMODAL</span><span>APPLIED ML</span></div></div></dialog>
+ return <dialog ref={ref} className="index-overlay" aria-label="Quick index" data-lenis-prevent onCancel={e=>{e.preventDefault();onClose()}}><button autoFocus onClick={onClose}>CLOSE ×</button><div className="index-main"><div><h3>NIKHIL YARRA</h3><p>AI ENGINEER</p></div><nav aria-label="Sections">{[['HOME','#identity'],['WORK','#systems'],['EXPERIENCE','#work'],['CONTACT','#contact']].map(([a,b])=><a href={b} onClick={e=>{e.preventDefault();onClose();requestAnimationFrame(()=>{const target=document.querySelector<HTMLElement>(b);target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true});target?.scrollIntoView();history.replaceState(null,'',b)})}} key={a}>{a}<span aria-hidden="true">↘</span></a>)}</nav><div className="index-meta"><span>AGENTIC AI</span><span>RAG</span><span>MULTIMODAL</span><span>APPLIED ML</span></div></div></dialog>
 }
 
 // The portfolio's visual signature stays behind the content; no video download.

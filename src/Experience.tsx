@@ -1,7 +1,7 @@
 import {useRef, useState, type KeyboardEvent} from 'react';
 import './experience.css';
 import ContentRibbon from './ContentRibbon';
-import {useAutoAdvance} from './Motion';
+
 
 const experiences = [
   {
@@ -42,7 +42,7 @@ export default function Experience() {
   const [active, setActive] = useState(0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
   const experience = experiences[active];
-  useAutoAdvance('work',()=>setActive(value=>(value+1)%experiences.length));
+
 
   function navigate(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next: number;
