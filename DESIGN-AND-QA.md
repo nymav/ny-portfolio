@@ -26,7 +26,7 @@ Lighthouse 12.8.2, three fresh simulated mobile runs: performance 96 each, acces
 
 ## Customer PDF
 
-Eight A4 pages: cover, profile/capabilities, four project studies, Teyrin and archive/contact. All pages rendered with Poppler and visually inspected. Text is searchable; 18 clickable links checked. Original project screenshots and explicit scope statements are used. The catalogue is linked from the website and is not loaded until requested.
+The customer PDF was redesigned as an eight-page landscape profile brochure: introduction, portrait/profile, client capabilities, DocAtlas flagship, Mailayer/GlassPDF spread, DRAX and wider experience, Teyrin, and contact. All pages were rendered with Poppler and visually inspected. Text is searchable; 15 clickable links checked, plus a QR code to the live portfolio. Technical detail is reduced, with original screenshots and concise scope captions. The catalogue is linked from the website and is not loaded until requested.
 
 ## Analytics and updates
 
