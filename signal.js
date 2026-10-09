@@ -1,99 +1,25 @@
 (() => {
-  const dialog = document.querySelector('#study');
-  const body = document.querySelector('.study-body');
-  const close = document.querySelector('.close');
+  const dialog=document.querySelector('#study'),body=document.querySelector('.study-body'),close=document.querySelector('.close');
   let trigger;
-  document.querySelectorAll('[data-study]').forEach(button => {
-    button.addEventListener('click', () => {
-      const study = window.verifiedCaseStudies[Number(button.dataset.study)];
-      if (!study) return;
-      trigger = button;
-      document.querySelector('.study-label').textContent = study.label;
-      document.querySelector('#study-title').textContent = study.title;
-      document.querySelector('.study-description').textContent = study.description;
-      body.replaceChildren();
-      const key=study.title.split(' — ')[0];
-      const evidence=window.caseEvidence?.[key];
-      if(evidence?.images.length){
-        const gallery=document.createElement('div');gallery.className='study-evidence';
-        for(const item of evidence.images){
-          const figure=document.createElement('figure'),image=document.createElement('img'),caption=document.createElement('figcaption');
-          image.src=item.src.replace(/\.png$/,'.webp');image.alt=item.caption;image.loading='lazy';
-          const dimensions={'mailayer-interface':[1440,1000],'drax-interface':[1280,720],'workflow':[1756,1090],'output':[1712,824]};
-          const name=item.src.split('/').pop().replace('.png','');
-          const size=dimensions[name]||[1440,1000];image.width=size[0];image.height=size[1];
-          caption.textContent=item.caption;figure.append(image,caption);gallery.append(figure);
-        }
-        body.append(gallery);
-      }
-      study.sections.forEach(([title, copy]) => {
-        const section = document.createElement('section');
-        const heading = document.createElement('h3');
-        const paragraph = document.createElement('p');
-        heading.textContent = title;
-        paragraph.textContent = copy;
-        section.append(heading, paragraph);
-        body.append(section);
-      });
-      const source = document.createElement('a');
-      source.href = study.url;
-      source.target = '_blank';
-      source.rel = 'noopener';
-      source.textContent = 'Explore the source ↗';
-      const sources=document.createElement('div');sources.className='study-sources';
-      const sourceHeading=document.createElement('h3');sourceHeading.textContent='Implementation sources';sources.append(sourceHeading);
-      for(const [label,url] of evidence?.links||[]){const link=document.createElement('a');link.href=url;link.textContent=label+' ↗';link.target='_blank';link.rel='noopener';sources.append(link)}
-      sources.append(source);body.append(sources);
-      dialog.showModal();
-      document.body.style.overflow = 'hidden';
-      close.focus();
-      dialog.scrollTop = 0;
-    });
-  });
-  dialog.addEventListener('keydown', event => {
-    if(event.key !== 'Tab') return;
-    const focusable=[...dialog.querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),[tabindex="0"]')].filter(element=>element.getClientRects().length);
-    if(!focusable.length)return;
-    event.preventDefault();
-    const index=focusable.indexOf(document.activeElement);
-    const next=index<0?(event.shiftKey?focusable.length-1:0):(index+(event.shiftKey?-1:1)+focusable.length)%focusable.length;
-    focusable[next].focus();
-  });
-  close.addEventListener('click', () => dialog.close());
-  dialog.addEventListener('close', () => {
-    document.body.style.overflow = '';
-    trigger?.focus({preventScroll: true});
-  });
-  dialog.addEventListener('click', event => {
-    if (event.target !== dialog) return;
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  });
-})();
-
-// Pointer previews are an enhancement; selecting a row reveals the same evidence.
-(() => {
-  const preview=document.querySelector('.floating-preview'),image=preview.querySelector('img'),caption=preview.querySelector('span');
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let active,keyboard=false;
-  function position(x,y){preview.style.left=Math.max(190,Math.min(innerWidth-190,x))+'px';preview.style.top=Math.max(170,Math.min(innerHeight-170,y))+'px'}
-  function show(row,x,y){if(!matchMedia('(min-width: 701px)').matches||row.querySelector('.project-trigger').getAttribute('aria-expanded')==='true')return;active=row;image.src=row.dataset.preview;caption.textContent=row.dataset.caption;position(x,y);preview.classList.add('visible')}
-  function hide(){active=null;preview.classList.remove('visible')}
-  document.querySelectorAll('.project-row').forEach(row=>{
-    const trigger=row.querySelector('.project-trigger'),panel=row.querySelector('.project-expand');
-    trigger.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){keyboard=false;show(row,event.clientX,event.clientY)}});
-    trigger.addEventListener('pointermove',event=>{if(active===row&&!reduced.matches)position(event.clientX,event.clientY)});
-    trigger.addEventListener('pointerleave',hide);
-    trigger.addEventListener('focus',()=>{keyboard=true;const r=trigger.getBoundingClientRect();show(row,innerWidth*.72,r.top+r.height*.5)});
-    trigger.addEventListener('blur',hide);
-    trigger.addEventListener('click',()=>{const opened=trigger.getAttribute('aria-expanded')==='true';trigger.setAttribute('aria-expanded',String(!opened));panel.hidden=opened;hide()});
-  });
-  document.addEventListener('scroll',()=>{if(keyboard&&active){const r=active.querySelector('.project-trigger').getBoundingClientRect();position(innerWidth*.72,r.top+r.height*.5)}else hide()},{passive:true});window.addEventListener('resize',hide);
-})();
-
-// Content is always readable; entrances add motion only after it reaches view.
-(() => {
-  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
-  const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('arrived');observer.unobserve(entry.target)}})},{threshold:.12});
-  document.querySelectorAll('.section-heading,.approach h2,.approach-list article,.about-copy,.portrait,.roles article,.contact h2').forEach(element=>observer.observe(element));
+  function element(tag,text,className){const e=document.createElement(tag);if(text)e.textContent=text;if(className)e.className=className;return e}
+  function link(label,url){const e=element('a',label+' ↗');e.href=url;e.target='_blank';e.rel='noopener';return e}
+  document.querySelectorAll('[data-study]').forEach(button=>button.addEventListener('click',()=>{
+    const p=window.catalogueProjects[Number(button.dataset.study)];if(!p)return;trigger=button;
+    document.querySelector('.study-label').textContent=p.category+' / '+p.status;
+    document.querySelector('#study-title').textContent=p.name;
+    document.querySelector('.study-description').textContent=p.summary;
+    body.replaceChildren();
+    const figure=element('figure',null,'study-evidence'),image=element('img');image.src='assets/evidence/'+p.image+'.webp';image.alt=p.caption;image.width=1280;image.height=720;figure.append(image,element('figcaption',p.caption));body.append(figure);
+    for(const [title,copy] of [['Purpose',p.purpose],['Implementation',p.implementation],['Evidence',p.evidence],['Scope',p.boundary]]){const section=element('section');section.append(element('h3',title),element('p',copy));body.append(section)}
+    const architecture=element('section',null,'architecture'),list=element('ol');architecture.append(element('h3','Architecture'));
+    p.flow.forEach(([title,copy,file],i)=>{const item=element('li');item.append(element('span',String(i+1).padStart(2,'0'),'node-number'),element('h4',title),element('p',copy),link('Source','https://github.com/nymav/'+p.repo+'/blob/'+p.sha+'/'+file));list.append(item)});architecture.append(list);body.append(architecture);
+    const sources=element('div',null,'study-sources');sources.append(element('h3','Repository'),link(p.name,'https://github.com/nymav/'+p.repo));body.append(sources);
+    dialog.showModal();document.body.style.overflow='hidden';close.focus();dialog.scrollTop=0;
+  }));
+  dialog.addEventListener('keydown',event=>{if(event.key!=='Tab')return;const controls=[...dialog.querySelectorAll('button:not([disabled]),a[href]')].filter(e=>e.getClientRects().length);if(!controls.length)return;event.preventDefault();const i=controls.indexOf(document.activeElement);controls[(i+(event.shiftKey?-1:1)+controls.length)%controls.length].focus()});
+  close.addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{document.body.style.overflow='';trigger?.focus({preventScroll:true})});
+  dialog.addEventListener('click',event=>{if(event.target!==dialog)return;const b=dialog.getBoundingClientRect();if(event.clientX<b.left||event.clientX>b.right||event.clientY<b.top||event.clientY>b.bottom)dialog.close()});
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('arrived');observer.unobserve(entry.target)}}),{threshold:.08});
+  document.querySelectorAll('.section-heading,.catalogue-card,.about-copy,.portrait,.roles article,.teyrin-layout,.contact h2').forEach(e=>observer.observe(e));
 })();

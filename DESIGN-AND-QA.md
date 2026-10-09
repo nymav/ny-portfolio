@@ -1,61 +1,35 @@
-# Design and verification — 8 October 2026
+# Catalogue design and verification - 9 October 2026
 
-## What was completed
+The portfolio now leads with a visual catalogue: DocAtlas, Mailayer, GlassPDF and DRAX TBS. Original interface images open implementation case studies with four source-linked architecture stages. DaChat, Airspace, facial emotion recognition and DDoS detection are available in the expandable archive. Copy was shortened across the hero, profile and contact sections; the earlier approach section stays removed.
 
-The material-led opening is followed by a preview-driven work index, detailed architecture views, evidence-rich case studies, an engineering approach grounded in actual code, an expanded professional profile and education, an experience timeline, and a direct contact flow. Typography and the stone / ink / burgundy identity remain consistent throughout.
+## Source review
 
-The original artwork was generated for this portfolio. Its motion now uses compositor transforms and a light passage, pausing out of view, on hidden documents, and for reduced-motion preferences. The former WebGL initializer produced a 2.4-second long task in a throttled test and was removed. Text assets are served with Brotli/gzip, with explicit MIME types and `nosniff` headers.
+Reviewed Nikhil Yarra’s LinkedIn profile and all 12 listed projects, the public GitHub repository list, and the Teyrin company page. Current project descriptions use revision-pinned source links. DocAtlas’s 95.83% recall@5 is explicitly identified as a small development retrieval evaluation, not generated-answer accuracy or a production guarantee. No unverified accuracy or client claims were added.
 
-## Cross-browser results
+Teyrin’s page identifies Software Development, Privately Held, 0-1 employees and the tagline “Intelligence, put to work.” Sole ownership is the user’s supplied statement; no legal entity type, registration, incorporation date, client roster or revenue is inferred. Teyrin is described as being built by Nikhil. The projects are selected personal work, not represented as delivered Teyrin customer engagements.
 
-| Engine | Version | Layout widths | Functional checks | Axe audited states | Violations |
-| --- | --- | --- | --- | --- | --- |
-| chromium | 155.0.8059.39 | 320, 390, 768, 1280, 1440 | 8 passed | 4 | 0 |
-| firefox | 153.0 | 320, 390, 768, 1280, 1440 | 8 passed | 4 | 0 |
-| webkit | 26.5 | 320, 390, 768, 1280, 1440 | 8 passed | 4 | 0 |
+Source revisions:
+- DocAtlas: 7a1c97c43dce99def7a8ddc8fbde3708c0878603
+- GlassPDF: 1d7d77ff05105488fb25b6488d585dfd4e513afc
+- Mailayer: 89b20b3ef7fd693d75bf5a0fecd5a14b9624eb2e
+- DRAX TBS: f0e8bcb5f849d2e6df74d36f973013562c9d5f92
 
-The engines were isolated headless test browsers: installed Google Chrome, Playwright Firefox, and Playwright WebKit. WebKit is engine coverage, not a claim that every shipping Safari/iOS version was tested. Mac WebKit uses Option+Tab for all-control navigation in this test configuration; that behavior is reflected in the test script.
+## Browser and accessibility checks
 
-Checks cover matching keyboard previews, all three expandable projects, four-stage architecture views, all three case-study dialogs and source links, modal Tab cycling, Escape and focus restoration, phone expansion, reduced-motion still artwork, the skip link, and a no-JavaScript identity/artwork fallback. No page JavaScript errors were recorded.
+Chrome 155.0.8059.39, Firefox 153.0 and WebKit 26.5 passed the new catalogue suite at widths 320, 390, 768, 1280 and 1440. All four dialogs, four architecture stages, image loading, keyboard Tab cycling, Escape focus restoration, archive expansion, reduced motion, no-JavaScript source links and PDF response were verified. No horizontal overflow or application JavaScript errors were detected.
 
-Axe-core 4.11.0 audited WCAG A/AA and best-practice rules in four states per engine: initial page, expanded Mailayer evidence, Mailayer dialog, and 320px phone layout. All 12 scans returned zero violations. Background-art contrast generated incomplete/manual-review items; these are retained in the raw reports. Automated scans do not cover every WCAG criterion. Focus behavior, layout, content labels, and visual contrast were also inspected manually; this is not a full screen-reader or WCAG conformance certification.
+Eight axe states per engine (24 total) reported zero violations: initial page, each of four project dialogs, expanded archive, phone and Teyrin on phone. Automated rules covered WCAG A/AA tags and best practices. Contrast checks against artwork may still require manual review. This is not full WCAG certification; real-device and screen-reader testing remain outside this automated scope.
 
-A cross-browser scan exposed transient low contrast during entrance fades. Entrances now keep full opacity and animate position only. WebKit exposed a native modal focus escape; dialogs now cycle their own focusable controls consistently.
+## Performance
 
-## Performance results
+Lighthouse 12.8.2, three fresh simulated mobile runs: performance 96 each, accessibility 100, best practices 100, SEO 100. Mobile LCP about 2.7s; blocking time 0ms; CLS 0. Desktop: all four category scores 100, LCP about 0.6s, blocking time 0ms and CLS 0. Local lab measurements, not production field metrics or INP measurements.
 
-Lighthouse 12.8.2, cold-cache local runs with standard simulated mobile throttling, followed by the desktop preset. Functional test browsers were closed before these measurements.
+## Customer PDF
 
-| Run | Performance | Accessibility | Best practices | SEO | LCP | Blocking time | Layout shift |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| mobile 1 | 98 | 100 | 100 | 100 | 2.4 s | 0 ms | 0 |
-| mobile 2 | 98 | 100 | 100 | 100 | 2.4 s | 0 ms | 0 |
-| mobile 3 | 98 | 100 | 100 | 100 | 2.4 s | 0 ms | 0 |
-| desktop 1 | 100 | 100 | 100 | 100 | 0.5 s | 0 ms | 0 |
+Eight A4 pages: cover, profile/capabilities, four project studies, Teyrin and archive/contact. All pages rendered with Poppler and visually inspected. Text is searchable; 18 clickable links checked. Original project screenshots and explicit scope statements are used. The catalogue is linked from the website and is not loaded until requested.
 
-The median simulated-mobile performance score is 98, with LCP approximately 2.4 seconds, 0ms total blocking time and CLS 0. Desktop performance is 100, with LCP approximately 0.5 seconds. These are reproducible local lab measurements, not promises of production scores on every device or network. Lighthouse cannot establish real-user INP. Field Core Web Vitals require measurements after deployment.
+## Analytics and updates
 
-The prior mobile test scored 62 with 2,370ms blocking time. Removing WebGL initialization eliminated the measured startup bottleneck while preserving ambient artwork motion.
+Cloudflare Web Analytics loads only on nymav.github.io, avoiding local development telemetry. Tracking is aggregate visits and performance, not named visitor identities. The existing supplied résumé PDF remains unchanged and predates the latest LinkedIn employment details. The site is reviewed as of this date; it is not automatically synchronized with LinkedIn.
 
-## Resource and server checks
-
-All 13 tested local resources returned HTTP 200 with appropriate MIME types and `nosniff`. Additional checks passed for Brotli decoding, PDF byte-range previews, missing-file responses, unsupported methods, root-boundary protection, and malformed URLs. JavaScript syntax was checked with Node.
-
-## Content verification
-
-Roles, dates and education were checked against the supplied résumé, not independently verified with employers. The undergraduate degree is retained as the résumé's B.S. Computer Science & Engineering. Project architecture and decisions come from retained repository-review findings and link to pinned source files. Interface samples, disconnected inference, historical artifacts and implementation limitations are labelled.
-
-No invented impact statistics, testimonials, awards, or accuracy benchmarks were added. The résumé's emotion-model accuracy claim is not promoted because repository evidence did not support the same claim. Project UI evidence does not establish newly completed Gmail OAuth, local inference, citation correctness, or distributed cluster runs.
-
-## Sources and influences
-
-- [Awwwards portfolio collection](https://www.awwwards.com/websites/portfolio/), [Dennis Snellenberg](https://dennissnellenberg.com/), and [Cynthia Ugwu](https://www.cynthiaugwu.com/) informed composition, project presentation and restraint. Their code, photography and branding were not copied. This portfolio has not been judged or rated by Awwwards.
-- [W3C contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) and [target-size guidance](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html).
-- [Axe-core](https://github.com/dequelabs/axe-core), [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) and [Core Web Vitals](https://web.dev/articles/vitals).
-
-Production-domain canonical/social-sharing metadata and real-user monitoring should be configured when a hosting domain is selected. The Node server is a local preview server; the portfolio can be deployed as a static site.
-
-
-## Profile update — 9 October 2026
-
-Reviewed the signed-in LinkedIn profile. Updated location to New York City Metropolitan Area; Warren and Carter Technologies Inc to Jan–Sep 2026; Tubman to Apr 2025–Feb 2026; undergraduate degree to B.Tech.; and added Phoenix Global internship, May–Jun 2022. Removed the approach section and tightened page copy. The supplied résumé PDF predates these profile changes and has not been edited. Cloudflare Web Analytics is configured for nymav.github.io; its account-generated module beacon is installed. It collects aggregate visits and performance, not named visitor identities. The simplified content passed the existing 3-engine, 5-width, 12-state automated accessibility suite. Earlier performance scores apply to the previously measured build.
+References: https://www.linkedin.com/in/nikhil-yarra/ ; https://www.linkedin.com/company/teyrin/ ; https://github.com/nymav ; https://developers.cloudflare.com/web-analytics/about/ .
