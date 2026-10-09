@@ -54,3 +54,8 @@ No invented impact statistics, testimonials, awards, or accuracy benchmarks were
 - [Axe-core](https://github.com/dequelabs/axe-core), [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) and [Core Web Vitals](https://web.dev/articles/vitals).
 
 Production-domain canonical/social-sharing metadata and real-user monitoring should be configured when a hosting domain is selected. The Node server is a local preview server; the portfolio can be deployed as a static site.
+
+
+## Profile update — 9 October 2026
+
+Reviewed the signed-in LinkedIn profile. Updated location to New York City Metropolitan Area; Warren and Carter Technologies Inc to Jan–Sep 2026; Tubman to Apr 2025–Feb 2026; undergraduate degree to B.Tech.; and added Phoenix Global internship, May–Jun 2022. Removed the approach section and tightened page copy. The supplied résumé PDF predates these profile changes and has not been edited. Cloudflare analytics remains pending account access/site token; no placeholder tracker has been deployed. Earlier performance scores apply to the previously measured build.
