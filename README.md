@@ -40,18 +40,14 @@ npm run preview
 
 The static production output is published from the `gh-pages` branch for GitHub Pages. Run `npm run build:pages`, then publish the generated `dist/` directory to `gh-pages`. The Pages build uses `/ny-portfolio/` as its asset base; the local development build uses `/`.
 
-## Project map
+## Selected projects
 
 | Project | Focus | Repository |
 | --- | --- | --- |
-| DRAX TBS | Local retrieval-augmented tutoring and knowledge system | [drax_tbs](https://github.com/nymav/drax_tbs) |
-| DaChat | Local Streamlit AI interface for CSV and property-price prediction workflows | [DaChat](https://github.com/nymav/DaChat) |
-| Face Emotion Detection | CNN-based facial emotion recognition | [Face-Emotion-Detection-Using-CNNs](https://github.com/nymav/Face-Emotion-Detection-Using-CNNs) |
-| DDoS Attack Detection | Machine-learning classification for network attacks | [DDoS Attack Detection](https://github.com/nymav/DDoS-Attack-Detection-using-Machine-Learning) |
-| Bank Marketing Modeling | Predictive modeling study for campaign response | [Predictive Modeling](https://github.com/nymav/Predictive-Modeling-for-Optimizing-Bank-Marketing-Campaigns-Using-Machine-Learning) |
-| Flight Data Analysis | MapReduce and Hadoop data-processing work | [Flight Data Analysis](https://github.com/nymav/Fligh-Data-Analysis-with-MapReduce) |
-
-The portfolio also includes Causal Med and Apple Sequence as exploratory systems studies.
+| DocAtlas | Documentation search, source inspection, and retrieval evaluation | [docatlas](https://github.com/nymav/docatlas) |
+| GlassPDF | Local PDF organisation, export, and OCR; a Teyrin product | [glasspdf](https://github.com/nymav/glasspdf) |
+| Mailayer | Read-only Gmail analysis and local search | [mailayer](https://github.com/nymav/mailayer) |
+| DRAX TBS | Textbook retrieval and local model inference | [drax_tbs](https://github.com/nymav/drax_tbs) |
 
 ## Built with
 
@@ -61,4 +57,4 @@ React, TypeScript, Vite, GSAP, Canvas, and GitHub Pages.
 
 - [LinkedIn](https://www.linkedin.com/in/nikhil-yarra/)
 - [GitHub](https://github.com/nymav)
-- [Email](mailto:nikhilyarra@gmail.com)
+- [Email](mailto:nikhilyarra01@gmail.com)
