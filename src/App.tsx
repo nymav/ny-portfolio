@@ -1,50 +1,124 @@
-import {useState, type ComponentProps} from 'react';
-import {profile, projects, outputs, experience, additionalWork, earlierWork} from './content';
+import { flushSync } from 'react-dom';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import './styles.css';
+import SkillParticles from './SkillParticles';
+import {projects as currentProjects, outputs, additionalWork, earlierWork} from './content';
+import ProjectArtifact from './ProjectArtifact';
+import Experience from './Experience';
+import ContentRibbon from './ContentRibbon';
+import PortfolioMotion from './PortfolioMotion';
+import {MotionProvider,useMotion} from './Motion';
 
-function ExternalLink({children,...props}:ComponentProps<'a'>){
- return <a {...props} target="_blank" rel="noopener noreferrer">{children}<span className="sr-only"> (opens in a new tab)</span></a>;
-}
+gsap.registerPlugin(ScrollTrigger);
 
-function ProjectExhibit({id}:{id:string}) {
-  if(id==='docatlas') return <figure className="exhibit retrieval-exhibit">
-    <figcaption><span>System anatomy</span><span>DocAtlas</span></figcaption>
-    <div className="retrieval-question">Where did this<br/>answer come from?</div>
-    <div className="retrieval-layers"><div><small>Retrieval</small><p>BM25 <span>Dense</span> Hybrid</p></div><div><small>Evidence</small><p>Source IDs <span>Exact quotations</span></p></div><div><small>Review</small><p>Inspect passages.<br/>Check the claim.</p></div></div>
-    <p className="exhibit-note">Retrieval and citation checks support inspection. They do not certify an answer.</p>
-  </figure>;
-  if(id==='modelguard') return <figure className="exhibit evaluation-exhibit">
-    <figcaption><span>Recorded demo</span><span>16 scripted cases</span></figcaption>
-    <h4>The aggregate<br/>isn’t the whole story.</h4>
-    <div className="result-bars">{[{label:'Baseline',passed:13},{label:'Candidate',passed:10},{label:'Recovery',passed:15}].map(row=><div className="result-row" key={row.label}><div><span>{row.label}</span><strong>{row.passed}<small> / 16</small></strong></div><div className="bar-track"><div style={{width:`${row.passed/16*100}%`}}/></div></div>)}</div>
-    <div className="paired-result"><p><strong>4</strong> regressions</p><p><strong>1</strong> improvement</p></div>
-    <p className="exhibit-note">Synthetic fixtures and recorded responses. These are test scenarios, not live model scores.</p>
-  </figure>;
-  return <figure className="exhibit repair-exhibit"><figcaption><span>Constructed repair example</span><span>DocMend</span></figcaption><h4>A small change.<br/>An inspectable repair.</h4><div className="code-change"><div><span>Before</span><code>fetch(url, timeout=30)</code></div><div><span>After</span><code>fetch(url, timeout=60)</code></div></div><p className="repair-context">Only an explicit documented signature is eligible here. An intentional example override may still be valid.</p><div className="repair-checks"><span>Immutable revisions</span><span>Static evidence</span><span>File-hash checks</span></div><p className="exhibit-note">Model-generated proposals stay drafts. Recovery is journaled and explicit.</p></figure>;
-}
-function ProjectStudy({project}:{project:typeof projects[number]}) {
- return <article className={`project-study study-${project.id}`} id={project.id}>
-   <div className="project-copy">
-     <div className="project-meta"><span>{project.category}</span></div>
-     <h3>{project.name}</h3><p className="project-thesis">{project.title}</p>
-     <p className="project-description">{project.description}</p><p className="stack">{project.stack}</p>
-     <div className="project-links"><ExternalLink className="button-link" href={project.repository}>View repository</ExternalLink><ExternalLink className="underlined-link" href={project.evidence}>{project.evidenceLabel}</ExternalLink></div>
+type Project = {
+  id:string; n:string; name:string; kicker:string; accent:string; ink?:string;
+  stack:string[]; desc:string; problem:string; approach:string; result:string;
+  flow:{label:string; sub?:string; kind?:'input'|'service'|'model'|'store'|'output'}[];
+};
+
+const projects:Project[] = currentProjects.map((p,i)=>({id:p.id,n:String(i+1),name:p.name,kicker:p.category,accent:'#d4d4d4',stack:p.stack.split(' · '),desc:p.description,problem:p.question,approach:p.implementation,result:p.validation+' '+p.limit,flow:[]}));
+
+// Measure layout rather than the animated bounding box when navigating.
+function sectionTop(element:HTMLElement){let top=0;let node:HTMLElement|null=element;while(node){top+=node.offsetTop;node=node.offsetParent as HTMLElement|null}return Math.max(0,top-80)}
+
+export default function App(){return <MotionProvider><Portfolio/></MotionProvider>}
+function Portfolio(){
+ const motion=useMotion();
+ const [active,setActive]=useState(()=>Math.max(0,projects.findIndex(p=>location.pathname.includes('/work/'+p.id)))), [indexOpen,setIndexOpen]=useState(false);
+
+ const [caseOpen,setCaseOpen]=useState(()=>location.hash==='#case-study'||location.pathname.includes('/work/'));
+ const project=projects[active];
+ useEffect(()=>{document.title=caseOpen?`${project.name} | Nikhil Yarra`:'Nikhil Yarra | AI Engineering & Research'},[caseOpen,project.name]);
+ useEffect(()=>{if(location.pathname.includes('/work/'))requestAnimationFrame(()=>{const target=document.getElementById('case-study');if(target)window.scrollTo({top:sectionTop(target),behavior:'instant'})})},[]);
+ // The chosen case study stays selected while its evidence is being read.
+ useEffect(()=>{
+  const navigate=(event:MouseEvent)=>{
+   const link=(event.target as Element).closest<HTMLAnchorElement>('a[href^="#"]');
+   if(!link||link.closest('dialog')||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+   const hash=link.getAttribute('href')!;
+   const target=document.getElementById(hash.slice(1));if(!target)return;
+   event.preventDefault();event.stopPropagation();
+   flushSync(()=>setIndexOpen(false));
+   requestAnimationFrame(()=>{
+    const destination=sectionTop(target);
+    window.scrollTo({top:destination,behavior:'instant'});
+    ScrollTrigger.update();
+    target.setAttribute('tabindex','-1');target.focus({preventScroll:true});
+    history.replaceState(null,'',hash);
+   });
+  };
+  document.addEventListener('click',navigate,true);
+  return()=>document.removeEventListener('click',navigate,true);
+ },[]);
+ const chooseProject=useCallback((i:number)=>{
+   flushSync(()=>{setActive(i);setCaseOpen(true)});
+   window.dispatchEvent(new CustomEvent('neural-select',{detail:i}));
+   const target=document.getElementById('case-study');
+   if(target){
+     ScrollTrigger.refresh();
+     window.scrollTo({top:sectionTop(target),behavior:'instant'});
+     target.focus({preventScroll:true});
+     history.replaceState(null,'',`${import.meta.env.BASE_URL}work/${projects[i].id}/#case-study`);
+   }
+ },[]);
+
+ useEffect(()=>{
+  let refreshFrame=0;
+  let previousHeight=0;
+  const refresh=()=>{const height=document.querySelector('main')?.offsetHeight||0;if(height===previousHeight)return;previousHeight=height;cancelAnimationFrame(refreshFrame);refreshFrame=requestAnimationFrame(()=>ScrollTrigger.refresh())};
+  const observer=new ResizeObserver(refresh);
+  if(document.querySelector('main'))observer.observe(document.querySelector('main')!);
+  return()=>{observer.disconnect();cancelAnimationFrame(refreshFrame);};
+ },[motion.paused]);
+ return <main>
+   <PortfolioMotion revision={`${caseOpen}-${active}`}/>
+   <CinematicFilm/>
+   <a className="skip-link" href="#systems">Skip to projects</a>
+   <MinimalNav onIndex={()=>setIndexOpen(true)}/>
+   <Hero/>
+   <div className="content-flow">
+   <ProjectDirectory active={active} setActive={chooseProject}/>
+   {caseOpen&&<ProjectScene project={project} close={()=>{flushSync(()=>setCaseOpen(false));const target=document.getElementById("systems")!;window.scrollTo({top:sectionTop(target),behavior:"instant"});target.setAttribute("tabindex","-1");target.focus({preventScroll:true});history.replaceState(null,"",`${import.meta.env.BASE_URL}#systems`)}}/>}
+   <ResearchOutputs/>
+   <Experience/>
+   <AdditionalWork/>
+   <Contact/>
    </div>
-   <ProjectExhibit id={project.id}/>
-   <details className="study-details">
-     <summary aria-label={`${project.name} implementation and validation`}>Implementation & validation</summary>
-     <dl><div><dt>Question</dt><dd>{project.question}</dd></div><div><dt>Implementation</dt><dd>{project.implementation}</dd></div><div><dt>Validation</dt><dd>{project.validation}</dd></div><div><dt>Limits</dt><dd>{project.limit}</dd></div></dl>
-   </details>
- </article>;
+   {indexOpen&&<IndexOverlay onClose={()=>setIndexOpen(false)}/>}
+ </main>
 }
-export default function App(){
- const [copied,setCopied]=useState(false),[copyError,setCopyError]=useState(false);
- async function copyEmail(){try{await navigator.clipboard.writeText(profile.email);setCopied(true);setCopyError(false)}catch{setCopyError(true)}}
- return <><a className="skip-link" href="#main">Skip to content</a><header className="site-header" id="top"><a className="wordmark" href="#top">Nikhil Yarra<span>AI engineer</span></a><nav aria-label="Main navigation"><a href="#work">Selected work</a><a href="#research">Research</a><a href="#background">Background</a><a href="#contact">Contact</a></nav><ExternalLink className="header-cv" href={`${import.meta.env.BASE_URL}Nikhil_Yarra_CV.pdf`}>Read CV <span>PDF</span></ExternalLink></header>
- <main id="main" tabIndex={-1}><section className="hero page-width" id="identity"><div className="hero-topline"><p>Independent work in retrieval, agents & evaluation</p><span>Hyderabad, India</span></div><div className="hero-composition"><div className="hero-main"><h1>AI systems,<br/><span>under examination.</span></h1><div className="hero-intro"><span className="intro-rule" aria-hidden="true"/><p>I’m Nikhil, an AI engineer working on evidence-grounded retrieval, agent validation and reproducible evaluation.</p></div><a className="underlined-link hero-work-link" href="#work">Explore selected work</a></div><figure className="portrait"><img src={`${import.meta.env.BASE_URL}nikhil-portrait-small.jpg`} width="480" height="480" alt="Nikhil Yarra" fetchPriority="high"/><figcaption><span>M.S. Data Science</span><strong>New Jersey Institute of Technology</strong></figcaption></figure></div><div className="hero-foot"><p>Current focus <span>How AI systems use evidence, and how their failures become visible.</span></p><ExternalLink href="https://github.com/nymav/docmend/releases/tag/v0.3.0"><span>Recent release</span> DocMend 0.3.0</ExternalLink></div></section>
- <section className="work-section page-width section-space" aria-labelledby="work-title"><header className="section-heading" id="work"><div><p className="section-label">Selected systems</p><h2 id="work-title">Built to be inspected.</h2></div><p>Three connected questions: find the evidence, measure the change, and keep the explanation accurate.</p></header><div className="project-studies">{projects.map(project=><ProjectStudy key={project.id} project={project}/>)}</div></section>
- <section className="research-section section-space" aria-labelledby="research-title"><div className="page-width"><header className="section-heading" id="research"><div><p className="section-label">Research outputs</p><h2 id="research-title">Questions I’m pursuing.</h2></div><p>Tool-observation integrity, provenance and the sensitivity of evaluation to system choices.</p></header><div className="outputs-list">{outputs.map(output=><article className="research-output" key={output.doi}><div><div className="output-meta"><span>{output.venue}</span><time>{output.date}</time></div><h3>{output.title}</h3><p>{output.description}</p><p className="doi">DOI: {output.doi}</p></div><ExternalLink className="output-read" href={output.url}>Read paper</ExternalLink></article>)}</div></div></section>
- <section className="background-section page-width section-space" aria-labelledby="background-title"><header className="section-heading" id="background"><div><p className="section-label">Background</p><h2 id="background-title">From data to AI systems.</h2></div><p>My work has moved from data preparation and analysis into retrieval, model integration and system evaluation.</p></header><div className="background-layout"><div className="background-aside"><h3>Research interests</h3><ul className="interest-list"><li>Reliable LLM agents</li><li>Evidence-grounded retrieval</li><li>Tool-observation validation</li><li>Provenance & execution assurance</li><li>Reproducible evaluation</li></ul><div className="education"><h3>Education</h3><article><time>2023–2024</time><h4>M.S. Data Science</h4><p>New Jersey Institute of Technology</p><span>Newark, United States</span></article><article><time>2019–2023</time><h4>B.Tech. Computer Science & Engineering</h4><p>GITAM</p><span>Hyderabad, India</span></article></div></div><div className="experience-list"><h3>Experience</h3>{experience.map(item=><article key={item.company}><time>{item.dates}</time><h4>{item.role}</h4><p className="company">{item.company}</p><p>{item.description}</p></article>)}</div></div><div className="skills-row" id="toolkit"><h3>Working toolkit</h3><ul>{["Python", "SQL", "FastAPI", "SQLite", "Git", "Docker", "GitHub Actions", "scikit-learn", "TensorFlow", "Retrieval & evaluation"].map(skill=><li key={skill}>{skill}</li>)}</ul></div></section>
- <section className="other-section page-width section-space" id="products" aria-labelledby="other-title"><header className="section-heading"><div><p className="section-label">Product work</p><h2 id="other-title">Beyond the research question.</h2></div><p>I also build practical software through Teyrin, including clinical workflows and local document tools.</p></header><div className="other-work">{additionalWork.map(item=><article key={item.name}><p className="section-label">{item.type}</p><h3>{item.name}</h3><p>{item.description}</p><ExternalLink className="underlined-link" href={item.url}>{item.name==='Medora'?'Visit Teyrin':'View repository'}</ExternalLink></article>)}</div><details className="earlier-work"><summary>Earlier experiments & studies</summary><div>{earlierWork.map(item=><ExternalLink href={item.url} key={item.name}><strong>{item.name}</strong><span>{item.description}</span><span className="earlier-source">Repository</span></ExternalLink>)}</div></details></section>
- <section className="contact-section" id="contact" aria-labelledby="contact-title"><div className="page-width"><p className="section-label">Get in touch</p><div className="contact-layout"><div><h2 id="contact-title">Let’s discuss<br/><span>the work.</span></h2><p>I’m interested in research and engineering conversations around reliable agents, retrieval and evaluation.</p></div><div className="contact-details"><a className="contact-email" href={`mailto:${profile.email}`}>{profile.email}</a><div className="contact-actions"><button type="button" onClick={copyEmail}>{copied?'Email copied':'Copy email'}</button><ExternalLink href={profile.linkedin}>LinkedIn</ExternalLink><ExternalLink href={profile.github}>GitHub</ExternalLink><ExternalLink href={`${import.meta.env.BASE_URL}Nikhil_Yarra_CV.pdf`}>CV (PDF)</ExternalLink></div><p className="copy-status" role="status">{copyError?'Copy unavailable. Select the email address above or open your email app.':copied?'Email address copied to your clipboard.':''}</p><p className="contact-location">{profile.location}</p></div></div><footer><a href="#top">Nikhil Yarra</a><p>Content reviewed November 2026</p><a href="#top">Back to top</a></footer></div></section></main></>;
+
+function MinimalNav({onIndex}:{onIndex:()=>void}){
+ const motion=useMotion();
+ const [section,setSection]=useState('HOME');
+ useEffect(()=>{let af=0;const update=()=>{cancelAnimationFrame(af);af=requestAnimationFrame(()=>{const sections=[['identity','HOME'],['systems','PROJECTS'],['case-study','CASE STUDY'],['research','RESEARCH'],['work','EXPERIENCE'],['products','PRODUCTS'],['contact','CONTACT']];let current='HOME';for(const [id,label] of sections){const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<=innerHeight*.42)current=label}setSection(current)})};update();addEventListener('scroll',update,{passive:true});return()=>{cancelAnimationFrame(af);removeEventListener('scroll',update)}},[]);
+ return <div className="chrome"><button className="progress-glyph" onClick={onIndex} aria-label="Open quick index"><span>NY</span><i/><span>INDEX</span></button><button className="motion-control" disabled={motion.reduced} onClick={motion.toggle} aria-pressed={motion.paused} aria-label={motion.reduced?'Reduced motion enabled':motion.paused?'Resume automatic motion':'Pause automatic motion'}>{motion.reduced?'MOTION OFF':motion.paused?'PLAY':'PAUSE'}</button><span className="current-section">{section}</span></div>
+}
+function Hero(){return <section className="hero" id="identity"><div className="hero-stage"><p className="hero-kicker">AI ENGINEERING & INDEPENDENT RESEARCH</p><h1 className="hero-name">Nikhil<br/><i>Yarra.</i></h1><div className="hero-caption"><p className="hero-copy">I build and evaluate LLM applications.<br/>Retrieval, model integration and evaluation.</p><a className="hero-cta" href="#systems">Explore selected work <span aria-hidden="true"></span></a></div></div><div className="hero-bottom"><span>PYTHON / AI / DATA</span><a href="#work">BACKGROUND </a></div></section>}
+
+function ProjectDirectory({active,setActive}:{active:number;setActive:(n:number)=>void}){return <section className="project-directory" id="systems"><header><h2>Projects</h2><p className="section-deck">Retrieval, regression evaluation and documentation integrity. Inspect the behavior, evidence and engineering decisions.</p></header><div className="featured-work">{projects.map((p,i)=><article key={p.id}><div className="featured-summary"><span className="eyebrow">{p.kicker}</span><h3><button onClick={()=>setActive(i)}>{p.name}</button></h3><p>{p.desc}</p><div className="featured-links"><button onClick={()=>setActive(i)} aria-label={`Open ${p.name} study`}>Explore the study</button><a href={currentProjects[i].repository} target="_blank" rel="noopener noreferrer">Source</a></div></div><ProjectArtifact id={p.id}/></article>)}</div></section>}
+function ProjectScene({project,close}:{project:Project;close:()=>void}){const p=currentProjects.find(p=>p.id===project.id)!;return <section id="case-study" tabIndex={-1} aria-label={`${project.name} case study`} className="project-scene"><div className="case-toolbar"><span className="case-index">{project.kicker}</span><button onClick={close} aria-label="Close case study">Close study</button></div><h2 className="study-title">{project.name}</h2><ProjectDetails project={project}/><ProjectArtifact id={project.id} interactive/><div className="project-proof-links"><a href={p.repository} target="_blank" rel="noopener noreferrer">Explore source</a><a href={p.evidence} target="_blank" rel="noopener noreferrer">Validation evidence</a></div><ContentRibbon label="Tools and frameworks" items={project.stack}/></section>}
+function ResearchOutputs(){return <section className="research-outputs" id="research"><header><h2>Research outputs</h2></header><div className="publication-list">{outputs.map(p=><article key={p.doi}><p className="eyebrow">{p.venue} · {p.date}</p><h3>{p.title}</h3><p>{p.description}</p><a href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener noreferrer">Paper and record</a></article>)}</div></section>}
+function AdditionalWork(){return <section className="additional-work" id="products"><h2>Products</h2><div className="publication-list">{additionalWork.map(p=><article key={p.name}><p className="eyebrow">{p.type}</p><h3>{p.name}</h3><p>{p.description}</p><a href={p.url} target="_blank" rel="noopener noreferrer">{p.name==='Medora'?'Visit Teyrin':'View repository'}</a></article>)}</div><details className="earlier-studies"><summary>Earlier experiments and studies</summary>{earlierWork.map(p=><p key={p.name}><a href={p.url} target="_blank" rel="noopener noreferrer">{p.name}</a><span>{p.description}</span></p>)}</details></section>}
+function ProjectDetails({project}:{project:Project}){
+ return <div className="study-details">{[['THE QUESTION',project.problem],['ENGINEERING',project.approach],['RESULT & STATUS',project.result]].map(([label,copy])=><div key={label}><h3>{label}</h3><p>{copy}</p></div>)}</div>
+}
+
+function Contact(){return <section className="contact" id="contact"><a className="contact-invitation" href="mailto:nikhilyarra.mail@gmail.com" aria-label="Email Nikhil Yarra"><h2>Contact</h2><span aria-hidden="true"></span></a><div className="contact-bottom"><p className="contact-note">For research and engineering opportunities<br/>in agents, retrieval and evaluation.</p><div className="contact-channels"><a href="mailto:nikhilyarra.mail@gmail.com"><span>WRITE DIRECTLY</span>Email </a><a href="https://www.linkedin.com/in/nikhil-yarra/" target="_blank" rel="noreferrer"><span>START A CONVERSATION</span>LinkedIn </a><a href="https://github.com/nymav" target="_blank" rel="noreferrer"><span>FOLLOW THE WORK</span>GitHub</a><a href={`${import.meta.env.BASE_URL}Nikhil_Yarra_CV.pdf`} target="_blank" rel="noopener noreferrer"><span>BACKGROUND</span>CV</a></div></div><footer className="end-mark"><a className="footer-signature" href="#identity">Nikhil <i>Yarra.</i></a><a href="#identity">BACK TO TOP </a></footer></section>}
+
+function IndexOverlay({onClose}:{onClose:()=>void}){
+ const ref=useRef<HTMLDialogElement>(null);
+ useEffect(()=>{const dialog=ref.current;const previous=document.activeElement as HTMLElement|null;dialog?.showModal();if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!document.querySelector('[data-motion-paused="true"]'))gsap.fromTo(dialog?.querySelector('.index-main')||dialog,{y:18,opacity:.6},{y:0,opacity:1,duration:.45,ease:'power3.out',clearProps:'transform,opacity'});const overflow=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{dialog?.close();document.body.style.overflow=overflow;previous?.focus()}},[]);
+ return <dialog ref={ref} className="index-overlay" aria-label="Quick index" data-lenis-prevent onKeyDown={e=>{if(e.key!=='Tab')return;const nodes=ref.current?.querySelectorAll<HTMLElement>('button,a[href]');if(!nodes?.length)return;const first=nodes[0],last=nodes[nodes.length-1];if(e.shiftKey&&(document.activeElement===first||document.activeElement===ref.current)){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}} onCancel={e=>{e.preventDefault();onClose()}}><button autoFocus onClick={onClose}>CLOSE ×</button><div className="index-main"><div><h3>NIKHIL YARRA</h3><p>AI ENGINEER</p></div><nav aria-label="Sections">{[['HOME','#identity'],['PROJECTS','#systems'],['RESEARCH','#research'],['EXPERIENCE','#work'],['PRODUCTS','#products'],['CONTACT','#contact']].map(([a,b])=><a href={b} onClick={e=>{e.preventDefault();onClose();requestAnimationFrame(()=>{const target=document.querySelector<HTMLElement>(b);target?.setAttribute('tabindex','-1');target?.focus({preventScroll:true});if(target)window.scrollTo({top:sectionTop(target),behavior:'instant'});history.replaceState(null,'',b)})}} key={a}>{a}<span aria-hidden="true"></span></a>)}</nav><div className="index-meta"><span>Hyderabad, India</span><a href={`${import.meta.env.BASE_URL}Nikhil_Yarra_CV.pdf`} target="_blank" rel="noopener noreferrer">CV</a></div></div></dialog>
+}
+
+// The portfolio's visual signature stays behind the content; no video download.
+function CinematicFilm(){
+ const {paused}=useMotion();
+ const keywords=['AGENTIC AI','RETRIEVAL','PYTHON','MACHINE LEARNING','MULTIMODAL','FASTAPI','DEEP LEARNING','SQL','EVALUATION','DATA PIPELINES'];
+ return <div className="cinematic-film" aria-hidden="true"><SkillParticles words={keywords} paused={paused}/><div className="film-shade"/></div>
 }
