@@ -1,60 +1,36 @@
-# Nikhil Yarra — AI/ML Systems Portfolio
+# Nikhil Yarra — portfolio redesign draft
 
-An interactive, cinematic portfolio for work across agentic AI, retrieval, multimodal ML, data systems, and applied research.
+React, TypeScript and Vite portfolio source. The existing public site is [nymav.github.io/ny-portfolio](https://nymav.github.io/ny-portfolio/), served from `gh-pages`.
 
-**Live site:** [nymav.github.io/ny-portfolio](https://nymav.github.io/ny-portfolio/)
+This redesign is a draft. Layout fixes have been implemented, but the owner has requested a richer visual direction. The current draft has not been published to `gh-pages`.
 
-## What is inside
+## Reports
 
-- A flowing network interface that connects projects, systems, experience, and contact.
-- Eight case studies spanning computer vision, local AI interfaces, predictive modeling, data engineering, and causal analysis.
-- An experience and education explorer with keyboard-accessible tabs and stable reading states.
-- Fluid section layouts, restrained glass controls, and reduced-motion support.
-- Three featured project studies, five additional experiments, scrolling tool ribbons and soft section backdrops.
-- Native scrolling with gentle section lift transitions; selected case studies remain stable while reading.
-- On-demand case studies with problem, implementation and status visible together.
-- A compact portrait and background integrated into the experience section.
-- A global pause control, interaction pauses, and reduced-motion fallbacks.
-- Offscreen canvas and project-strip animations pause to reduce idle work.
-- Evidence links to the public GitHub repositories behind the featured work.
+- [Design research, original video evidence and proposed composition](docs/PORTFOLIO-DESIGN-RESEARCH.md)
+- [Complete current surface inventory and layout audit](docs/PORTFOLIO-LAYOUT-AUDIT.md)
 
-## Run locally
+The audit distinguishes browser checks, source inspection and untested environments. The research distinguishes empirical evidence, practitioner guidance and proposed art direction.
 
-Requires Node.js 22.12+ (or a current supported LTS release).
+## Content
+
+`src/content.ts` holds the owner’s profile, selected projects, research outputs and work history. Evidence links accompany the selected systems. Constructed model-evaluation data is labeled; passing software tests is not presented as real-world model accuracy.
+
+`src/App.tsx` contains the portfolio surfaces. `src/styles.css` defines the responsive layout. The CV, fonts, licenses and fallback document are in `public/`.
+
+## Local checks
+
+Node.js 22.15+ is used for the build audit’s TypeScript imports.
 
 ```sh
-git clone https://github.com/nymav/ny-portfolio.git
-cd ny-portfolio
 npm ci
 npm run dev
+npm run build:pages
+npm run audit:build
+npm run preview -- --base=/ny-portfolio/
 ```
 
-Create a production build with:
+The built output is `dist/`. Publication must retain `/ny-portfolio/` as the base. The existing public deployment is controlled by `gh-pages`; updating a draft source branch does not publish the redesign.
 
-```sh
-npm run build
-npm run preview
-```
+## Contact
 
-## Deploy
-
-The static production output is published from the `gh-pages` branch for GitHub Pages. Run `npm run build:pages`, then publish the generated `dist/` directory to `gh-pages`. The Pages build uses `/ny-portfolio/` as its asset base; the local development build uses `/`.
-
-## Selected projects
-
-| Project | Focus | Repository |
-| --- | --- | --- |
-| DocAtlas | Documentation search, source inspection, and retrieval evaluation | [docatlas](https://github.com/nymav/docatlas) |
-| GlassPDF | Local PDF organisation, export, and OCR; a Teyrin product | [glasspdf](https://github.com/nymav/glasspdf) |
-| Mailayer | Read-only Gmail analysis and local search | [mailayer](https://github.com/nymav/mailayer) |
-| DRAX TBS | Textbook retrieval and local model inference | [drax_tbs](https://github.com/nymav/drax_tbs) |
-
-## Built with
-
-React, TypeScript, Vite, GSAP, Canvas, and GitHub Pages.
-
-## Connect
-
-- [LinkedIn](https://www.linkedin.com/in/nikhil-yarra/)
-- [GitHub](https://github.com/nymav)
-- [Email](mailto:nikhilyarra01@gmail.com)
+[nikhilyarra.mail@gmail.com](mailto:nikhilyarra.mail@gmail.com) · [LinkedIn](https://www.linkedin.com/in/nikhil-yarra/) · [GitHub](https://github.com/nymav)
