@@ -1,10 +1,12 @@
-# Nikhil Yarra — portfolio redesign draft
+# Nikhil Yarra — portfolio
 
 React, TypeScript and Vite portfolio source. The existing public site is [nymav.github.io/ny-portfolio](https://nymav.github.io/ny-portfolio/), served from `gh-pages`.
 
-This redesign is a draft. Layout fixes have been implemented, but the owner has requested a richer visual direction. The current draft has not been published to `gh-pages`.
+The current design restores the repository’s black-particle cinematic composition and integrates current research outputs, project evidence and corrected background details. It includes reduced-motion support and shareable project-study addresses.
 
 ## Reports
+
+- [Current black-particle layout and interaction audit](docs/BLACK-PARTICLE-LAYOUT-AUDIT.md)
 
 - [Design research, original video evidence and proposed composition](docs/PORTFOLIO-DESIGN-RESEARCH.md)
 - [Complete current surface inventory and layout audit](docs/PORTFOLIO-LAYOUT-AUDIT.md)
