@@ -1,3 +1,5 @@
+> Superseded for the current visual implementation by [Black-particle layout audit](BLACK-PARTICLE-LAYOUT-AUDIT.md). Retained as research and iteration history.
+
 # Portfolio layout and interaction audit
 
 Date: 4 November 2026. Repository: `nymav/ny-portfolio`.
