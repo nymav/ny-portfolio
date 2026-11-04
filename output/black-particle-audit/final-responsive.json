@@ -1,0 +1,128 @@
+[
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 740,
+    "overflow": 0,
+    "surface": "home",
+    "width": 320
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 320
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 844,
+    "overflow": 0,
+    "surface": "home",
+    "width": 390
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 390
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 1024,
+    "overflow": 0,
+    "surface": "home",
+    "width": 768
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 768
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 768,
+    "overflow": 0,
+    "surface": "home",
+    "width": 1024
+  },
+  {
+    "overflow": 0,
+    "scrollable": true,
+    "surface": "index",
+    "width": 1024
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 800,
+    "overflow": 0,
+    "surface": "home",
+    "width": 1176
+  },
+  {
+    "overflow": 0,
+    "scrollable": true,
+    "surface": "index",
+    "width": 1176
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 900,
+    "overflow": 0,
+    "surface": "home",
+    "width": 1440
+  },
+  {
+    "overflow": 0,
+    "scrollable": true,
+    "surface": "index",
+    "width": 1440
+  },
+  {
+    "headings": [
+      "Projects",
+      "Research outputs",
+      "Experienceand education",
+      "Contact"
+    ],
+    "height": 390,
+    "overflow": 0,
+    "surface": "home",
+    "width": 844
+  },
+  {
+    "overflow": 0,
+    "scrollable": true,
+    "surface": "index",
+    "width": 844
+  }
+]
