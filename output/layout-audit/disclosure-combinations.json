@@ -1,0 +1,194 @@
+[
+  {
+    "mask": 0,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 1,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      false,
+      false,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 2,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      true,
+      false,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 3,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 4,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      false,
+      true,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 5,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      false,
+      true,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 6,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      true,
+      true,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 7,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 8,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      false,
+      false,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 9,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      false,
+      false,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 10,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      true,
+      false,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 11,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      true,
+      false,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 12,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      false,
+      true,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 13,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      false,
+      true,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 14,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      false,
+      true,
+      true,
+      true
+    ],
+    "width": 1440
+  },
+  {
+    "mask": 15,
+    "clipped": [],
+    "documentWidth": 1440,
+    "open": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "width": 1440
+  }
+]
