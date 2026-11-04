@@ -1,0 +1,303 @@
+[
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 320
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 740,
+        "id": "identity",
+        "width": 320
+      },
+      {
+        "height": 2509,
+        "id": "systems",
+        "width": 320
+      },
+      {
+        "height": 1101,
+        "id": "research",
+        "width": 320
+      },
+      {
+        "height": 1139,
+        "id": "work",
+        "width": 320
+      },
+      {
+        "height": 1098,
+        "id": "products",
+        "width": 320
+      },
+      {
+        "height": 682,
+        "id": "contact",
+        "width": 320
+      }
+    ],
+    "surface": "home",
+    "width": 320
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 390
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 844,
+        "id": "identity",
+        "width": 390
+      },
+      {
+        "height": 2442,
+        "id": "systems",
+        "width": 390
+      },
+      {
+        "height": 946,
+        "id": "research",
+        "width": 390
+      },
+      {
+        "height": 1093,
+        "id": "work",
+        "width": 390
+      },
+      {
+        "height": 1071,
+        "id": "products",
+        "width": 390
+      },
+      {
+        "height": 764,
+        "id": "contact",
+        "width": 390
+      }
+    ],
+    "surface": "home",
+    "width": 390
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 768
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 1024,
+        "id": "identity",
+        "width": 768
+      },
+      {
+        "height": 1655,
+        "id": "systems",
+        "width": 768
+      },
+      {
+        "height": 623,
+        "id": "research",
+        "width": 768
+      },
+      {
+        "height": 851,
+        "id": "work",
+        "width": 768
+      },
+      {
+        "height": 818,
+        "id": "products",
+        "width": 768
+      },
+      {
+        "height": 944,
+        "id": "contact",
+        "width": 768
+      }
+    ],
+    "surface": "home",
+    "width": 768
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 1024
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 768,
+        "id": "identity",
+        "width": 1024
+      },
+      {
+        "height": 1802,
+        "id": "systems",
+        "width": 1024
+      },
+      {
+        "height": 696,
+        "id": "research",
+        "width": 1024
+      },
+      {
+        "height": 920,
+        "id": "work",
+        "width": 1024
+      },
+      {
+        "height": 831,
+        "id": "products",
+        "width": 1024
+      },
+      {
+        "height": 688,
+        "id": "contact",
+        "width": 1024
+      }
+    ],
+    "surface": "home",
+    "width": 1024
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 1176
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 800,
+        "id": "identity",
+        "width": 1176
+      },
+      {
+        "height": 1907,
+        "id": "systems",
+        "width": 1176
+      },
+      {
+        "height": 729,
+        "id": "research",
+        "width": 1176
+      },
+      {
+        "height": 973,
+        "id": "work",
+        "width": 1176
+      },
+      {
+        "height": 864,
+        "id": "products",
+        "width": 1176
+      },
+      {
+        "height": 720,
+        "id": "contact",
+        "width": 1176
+      }
+    ],
+    "surface": "home",
+    "width": 1176
+  },
+  {
+    "overflow": 0,
+    "scrollable": false,
+    "surface": "index",
+    "width": 1440
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 900,
+        "id": "identity",
+        "width": 1440
+      },
+      {
+        "height": 1995,
+        "id": "systems",
+        "width": 1440
+      },
+      {
+        "height": 830,
+        "id": "research",
+        "width": 1440
+      },
+      {
+        "height": 1062,
+        "id": "work",
+        "width": 1440
+      },
+      {
+        "height": 894,
+        "id": "products",
+        "width": 1440
+      },
+      {
+        "height": 820,
+        "id": "contact",
+        "width": 1440
+      }
+    ],
+    "surface": "home",
+    "width": 1440
+  },
+  {
+    "overflow": 0,
+    "scrollable": true,
+    "surface": "index",
+    "width": 844
+  },
+  {
+    "overflow": 0,
+    "sections": [
+      {
+        "height": 613,
+        "id": "identity",
+        "width": 844
+      },
+      {
+        "height": 1691,
+        "id": "systems",
+        "width": 844
+      },
+      {
+        "height": 638,
+        "id": "research",
+        "width": 844
+      },
+      {
+        "height": 866,
+        "id": "work",
+        "width": 844
+      },
+      {
+        "height": 825,
+        "id": "products",
+        "width": 844
+      },
+      {
+        "height": 625,
+        "id": "contact",
+        "width": 844
+      }
+    ],
+    "surface": "home",
+    "width": 844
+  }
+]
