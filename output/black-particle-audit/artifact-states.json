@@ -1,0 +1,47 @@
+[
+  {
+    "overflow": 0,
+    "state": "Source passage",
+    "surface": "DocAtlas case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Citation checks",
+    "surface": "DocAtlas case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Failure found",
+    "surface": "DocAtlas case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Baseline",
+    "surface": "ModelGuard case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Candidate",
+    "surface": "ModelGuard case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Recovery",
+    "surface": "ModelGuard case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Code change",
+    "surface": "DocMend case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Repair conditions",
+    "surface": "DocMend case study"
+  },
+  {
+    "overflow": 0,
+    "state": "Recovery",
+    "surface": "DocMend case study"
+  }
+]
