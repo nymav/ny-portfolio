@@ -1,3 +1,5 @@
+> Superseded for the current visual implementation by [Black-particle layout audit](BLACK-PARTICLE-LAYOUT-AUDIT.md). Retained as research and iteration history.
+
 # Portfolio design research and proposed direction
 
 Prepared 4 November 2026 for Nikhil Yarra. This report addresses both visual quality and the practical task of evaluating the owner’s work. It does not claim that any single layout is scientifically established as the best portfolio.
