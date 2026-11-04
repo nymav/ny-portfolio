@@ -1,0 +1,47 @@
+[
+  {
+    "overflow": 0,
+    "state": "Source passage",
+    "study": "DocAtlas"
+  },
+  {
+    "overflow": 0,
+    "state": "Citation checks",
+    "study": "DocAtlas"
+  },
+  {
+    "overflow": 0,
+    "state": "Failure found",
+    "study": "DocAtlas"
+  },
+  {
+    "overflow": 0,
+    "state": "Baseline",
+    "study": "ModelGuard"
+  },
+  {
+    "overflow": 0,
+    "state": "Candidate",
+    "study": "ModelGuard"
+  },
+  {
+    "overflow": 0,
+    "state": "Recovery",
+    "study": "ModelGuard"
+  },
+  {
+    "overflow": 0,
+    "state": "Code change",
+    "study": "DocMend"
+  },
+  {
+    "overflow": 0,
+    "state": "Repair conditions",
+    "study": "DocMend"
+  },
+  {
+    "overflow": 0,
+    "state": "Recovery",
+    "study": "DocMend"
+  }
+]
