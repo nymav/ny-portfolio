@@ -1,0 +1,46 @@
+[
+  {
+    "dialogOpen": false,
+    "hash": "#identity",
+    "overflow": 0,
+    "y": 0
+  },
+  {
+    "dialogOpen": false,
+    "hash": "#systems",
+    "overflow": 0,
+    "y": 820
+  },
+  {
+    "dialogOpen": false,
+    "hash": "#research",
+    "overflow": 0,
+    "y": 2815
+  },
+  {
+    "dialogOpen": false,
+    "hash": "#work",
+    "overflow": 0,
+    "y": 3645
+  },
+  {
+    "dialogOpen": false,
+    "hash": "#products",
+    "overflow": 0,
+    "y": 4707
+  },
+  {
+    "dialogOpen": false,
+    "hash": "#contact",
+    "overflow": 0,
+    "y": 5600
+  },
+  {
+    "focusInDialog": true,
+    "focused": "CLOSE ×NIKHIL YARRAAI ENGINEERHOMEPROJECTSRESEARCHEXPERIENCEPRODUCTSCONTACTAGENTIC AIRAGMULTIMODALAPPLIED ML"
+  },
+  {
+    "focusInDialog": false,
+    "focused": "Skip to projectsNYINDEXPAUSECONTACTAI ENGINEERING & INDEPENDENT RESEARCHNikhilYarra.RELIABLE SYSTEMS. INSPECTABLE EVIDENCE.I build and evaluate LLM applications.Retrieval, model integration and evaluation.Explore selected work PYTHON / AI / DATAENGINEERING, WITH CURIOSITY.BACKGROUND SELECTED SYSTEMSFrom questionto working system.Retrieval, regression evaluation and documentation integrity. Inspect the behavior, evidence and engineering decisions.Retrieval & groundingDocAtlasA local documentation workspace for finding passages, inspecting sources and evaluating retrieval. Optional generation adds cited draft answers.Explore the studySourceEvidence inspectionLocal retrievalREADME.mdModel setupPublic repositoryRepository excerpt“DocAtlas never silently switches providers.”SourceREADME.mdInspectionPassage and quotationAn exact quotation can be checked.The answer’s claim needs its own evaluation.BM25DenseHybridRegression evaluationModelGuardPaired evaluation of a candidate prompt or model against a pinned baseline, with immutable run history and inspectable regression reports.Explore the studySourceRecorded evaluationSynthetic fixtureCases passing10 / 1613Baseline10Candidate15Recovery4 regressions1 improvementSynthetic cases and recorded responses. No live model performance is implied.Documentation integrityDocMendDocumentation drift analysis across immutable Git revisions. Findings carry supporting evidence; narrowly scoped repairs are checked before application.Explore the studySourceGuarded documentation repairConstructed exampleapi.pySignature contractBeforefetch(url, timeout=30)Afterfetch(url, timeout=60)DocumentationAn explicit documented signature is eligible for a narrowly scoped correction.Intentional example overrides may remain valid. Model-generated repairs stay drafts.RESEARCH OUTPUTSQuestions worthexamining.SSRN · September 2026Tool-Observation Integrity in AI Agents: A Critical Survey of Validation, Provenance, and Execution AssuranceA survey focused on how agent systems validate tool observations, preserve provenance and account for execution.Paper and recordZenodo · October 2026Simulator Update Frequency Sensitivity in Driving Scenario SearchA study of simulator update frequency as a sensitivity variable in driving-scenario search.Paper and record Experience & educationA path throughdata & AI.Applied AI and data engineering.M.S. Data Science, NJIT.Professional background JAN–SEP 2026Warren & CarterAI EngineerAPR 2025–FEB 2026Tubman TechnologiesData Analyst2023—2024NJITEducation2022—2023SYMNNData Analyst2019–2023GITAMEducationMAY–JUN 2022Phoenix GlobalData Engineer InternExperience/AI EngineerWarren & CarterModels meet tools, retrieval, multimodal inputs and review paths.Agentic workflowsRAGMultimodalTool routingFastAPIValidation1 of 6JAN–SEP 2026PreviousNextWarren & Carter, AI Engineer, JAN–SEP 2026PRODUCT WORK & EARLIER STUDIESClinical workflow prototypeMedoraDoctor, front-desk, nursing and billing workflows with role-based access. In active development through Teyrin.Visit TeyrinLocal document toolsGlassPDFPDF organisation, extraction, export and English OCR in a browser and desktop app.View repositoryEmail analysisMailayerRead-only Gmail analysis, local search and optional local-model assistance.View repositoryEarlier experiments and studiesDRAX TBSTextbook retrieval and local-model tutoringFacial-image classificationA happy/sad transfer-learning studyFlight-data analysisJava MapReduce, Hadoop and OozieTHE NEXT CONVERSATIONGood work starts withan interesting conversation.Let’s talk.Let’s discuss applied AI engineering,reliable agents, retrieval or evaluation.WRITE DIRECTLYEmail START A CONVERSATIONLinkedIn FOLLOW THE WORKGitHubBACKGROUNDCVNikhil Yarra.APPLIED AI · DATA · EXPERIMENTSBACK TO TOP CLOSE ×NIKHIL YARRAAI ENGINEERHOMEPROJECTSRESEARCHEXPERIENCEPRODUCTSCONTACTAGENTIC AIRAGMULTIMODALAPPLIED ML\n\n"
+  }
+]
