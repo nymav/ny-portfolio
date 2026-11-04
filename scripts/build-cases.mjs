@@ -1,4 +1,4 @@
-import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {readFile,mkdir,writeFile,copyFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
 const html=await readFile(resolve(root,'dist/index.html'),'utf8');
@@ -15,3 +15,7 @@ for(const p of cases){
  await writeFile(resolve(dir,'index.html'),page);
 }
 console.log('Generated three directly addressable case-study pages.');
+
+await writeFile(resolve(root,'dist/.nojekyll'),'');
+await copyFile(resolve(root,'README.md'),resolve(root,'dist/README.md'));
+await copyFile(resolve(root,'docs/BLACK-PARTICLE-LAYOUT-AUDIT.md'),resolve(root,'dist/DESIGN-AND-QA.md'));
