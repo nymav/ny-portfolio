@@ -1,7 +1,38 @@
 # Nikhil Yarra — portfolio
 
-Published through GitHub Pages from the gh-pages branch.
+React, TypeScript and Vite portfolio source. The existing public site is [nymav.github.io/ny-portfolio](https://nymav.github.io/ny-portfolio/), served from `gh-pages`.
 
-Live site: https://nymav.github.io/ny-portfolio/
+The current design restores the repository’s black-particle cinematic composition and integrates current research outputs, project evidence and corrected background details. It includes reduced-motion support and shareable project-study addresses.
 
-This is a static site: index.html, signal.css, three JavaScript files, and self-hosted assets. No build or package installation is required. See DESIGN-AND-QA.md for measured validation results.
+## Reports
+
+- [Current black-particle layout and interaction audit](docs/BLACK-PARTICLE-LAYOUT-AUDIT.md)
+
+- [Design research, original video evidence and proposed composition](docs/PORTFOLIO-DESIGN-RESEARCH.md)
+- [Complete current surface inventory and layout audit](docs/PORTFOLIO-LAYOUT-AUDIT.md)
+
+The audit distinguishes browser checks, source inspection and untested environments. The research distinguishes empirical evidence, practitioner guidance and proposed art direction.
+
+## Content
+
+`src/content.ts` holds the owner’s profile, selected projects, research outputs and work history. Evidence links accompany the selected systems. Constructed model-evaluation data is labeled; passing software tests is not presented as real-world model accuracy.
+
+`src/App.tsx` contains the portfolio surfaces. `src/styles.css` defines the responsive layout. The CV, fonts, licenses and fallback document are in `public/`.
+
+## Local checks
+
+Node.js 22.15+ is used for the build audit’s TypeScript imports.
+
+```sh
+npm ci
+npm run dev
+npm run build:pages
+npm run audit:build
+npm run preview -- --base=/ny-portfolio/
+```
+
+The built output is `dist/`. Publication must retain `/ny-portfolio/` as the base. The existing public deployment is controlled by `gh-pages`; updating a draft source branch does not publish the redesign.
+
+## Contact
+
+[nikhilyarra.mail@gmail.com](mailto:nikhilyarra.mail@gmail.com) · [LinkedIn](https://www.linkedin.com/in/nikhil-yarra/) · [GitHub](https://github.com/nymav)
