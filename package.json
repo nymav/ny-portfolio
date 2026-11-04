@@ -1,13 +1,14 @@
 {
-  "name": "nikhil-cinematic-editorial",
+  "name": "nikhil-yarra-portfolio",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "build:pages": "tsc -b && vite build --base=/ny-portfolio/"
+    "build:pages": "tsc -b && vite build --base=/ny-portfolio/",
+    "audit:build": "node --experimental-strip-types scripts/audit-build.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
