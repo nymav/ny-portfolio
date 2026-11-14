@@ -12,19 +12,19 @@ for(const p of data.projects){
  assert.equal(new URL(p.repository).hostname,'github.com');
  assert.equal(new URL(p.evidence).hostname,'github.com');
 }
-const app=(await Promise.all(['App.tsx','Experience.tsx','ProjectArtifact.tsx','styles.css'].map(f=>readFile(resolve(root,'src',f),'utf8')))).join('\n');
+const app=(await Promise.all(['App.tsx','styles.css'].map(f=>readFile(resolve(root,'src',f),'utf8')))).join('\n');
 assert.ok(!/[\u2190-\u21ff\u27f0-\u27ff]/u.test(app+content),'Arrow glyph in authored interface');
 for(const file of [...data.projects.map(p=>`work/${p.id}/index.html`)]) assert.ok((await stat(resolve(root,'dist',file))).size>100,file);
 const html=await readFile(resolve(root,'dist/index.html'),'utf8');
 const assets=[...html.matchAll(/(?:src|href)="(\/ny-portfolio\/[^"?#]+)"/g)].map(m=>m[1]);
 assert.ok(assets.some(a=>a.endsWith('.js')));
 for(const asset of assets)assert.ok((await stat(resolve(root,'dist',asset.slice('/ny-portfolio/'.length)))).isFile(),asset);
-for(const filename of ['Nikhil_Yarra_CV.pdf','404.html','fonts/ibm-plex-sans.ttf','fonts/instrument-serif.ttf'])assert.ok((await stat(resolve(root,'dist',filename))).isFile());
+for(const filename of ['Nikhil_Yarra_CV.pdf','404.html'])assert.ok((await stat(resolve(root,'dist',filename))).isFile());
 const pdf=await readFile(resolve(root,'dist/Nikhil_Yarra_CV.pdf'));
 assert.equal(pdf.subarray(0,4).toString(),'%PDF');
 const bundled=await readdir(resolve(root,'dist/assets'));
 const css=await readFile(resolve(root,'dist/assets',bundled.find(n=>n.endsWith('.css'))),'utf8');
-assert.ok(css.includes('/ny-portfolio/fonts/ibm-plex-sans.ttf'),'Font path must respect Pages base');
+assert.ok(css.includes('Space+Grotesk'),'Brand fonts must load');
 assert.ok(!/Questions worth|Good work starts|ENGINEERING, WITH CURIOSITY/.test(app),'Retired promotional headings');
 for(const p of data.projects){const page=await readFile(resolve(root,'dist/work',p.id,'index.html'),'utf8');assert.ok(page.includes(`<title>${p.name} | Nikhil Yarra</title>`));assert.ok(page.includes(`https://nymav.github.io/ny-portfolio/work/${p.id}/`));}
 console.log('PASS: project evidence fields, contact, authored glyphs, Pages paths, fonts, CV and recovery page');
