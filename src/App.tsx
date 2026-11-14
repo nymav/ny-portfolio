@@ -125,13 +125,13 @@ function Research() {
 }
 
 function Teyrin() {
-  const medora = additionalWork[0].description;
   return <section className="teyrin orange" id="teyrin">
     <Grain/>
     <div className="amp" aria-hidden="true">&amp;</div>
     <p className="label" data-reveal>Now</p>
     <h2 data-reveal>Building <span className="word">TEYR<b>I</b>N</span></h2>
-    <p className="t-lead" data-reveal>I founded Teyrin Labs to make software that <em>quietly does the work,</em> so people can do theirs. Its first product is Medora: {medora.charAt(0).toLowerCase() + medora.slice(1)}</p>
+    <p className="t-lead" data-reveal>Most software adds work. <em>Teyrin Labs builds the kind that takes it away.</em></p>
+    <p className="t-body" data-reveal>Our first product, Medora, runs the whole clinic: the doctor's notes, the front desk, the nurses and the bill, each person seeing only what they should. With Medora Ops, AI agents take on everything around the doctor. Doctors practise medicine. <b>Medora handles the rest.</b></p>
     <p className="links" data-reveal><a href="https://teyrinlabs.com/" target="_blank" rel="noopener noreferrer">teyrinlabs.com</a></p>
   </section>;
 }
