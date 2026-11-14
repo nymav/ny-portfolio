@@ -130,8 +130,9 @@ function Teyrin() {
     <div className="amp" aria-hidden="true">&amp;</div>
     <p className="label" data-reveal>Now</p>
     <h2 data-reveal>Building <span className="word">TEYR<b>I</b>N</span></h2>
-    <p className="t-lead" data-reveal>Most software adds work. <em>Teyrin Labs builds the kind that takes it away.</em></p>
-    <p className="t-body" data-reveal>Our first product, Medora, runs the whole clinic: the doctor's notes, the front desk, the nurses and the bill, each person seeing only what they should. With Medora Ops, AI agents take on everything around the doctor. Doctors practise medicine. <b>Medora handles the rest.</b></p>
+    <p className="t-lead" data-reveal>Software shaped around you, <em>not the other way round.</em></p>
+    <p className="t-body" data-reveal>Teyrin Labs builds personalised software: systems designed around how a business actually works, down to its fields, roles and workflows. We're a small team of AI-native engineers, so we build with the speed and range of a team <b>ten times our size.</b></p>
+    <p className="t-body" data-reveal>The first proof is Medora, a clinic system shaped around each practice, with AI agents taking on the work around the doctor.</p>
     <p className="links" data-reveal><a href="https://teyrinlabs.com/" target="_blank" rel="noopener noreferrer">teyrinlabs.com</a></p>
   </section>;
 }
